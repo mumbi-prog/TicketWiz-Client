@@ -1,9 +1,13 @@
 import './App.css';
 import Footer from './components/LandingPage/Footer';
+import Clients from './components/LandingPage/Clients';
 
 function App() {
   return (
-    <Footer />
+   <div>
+     <Clients />
+      <Footer />
+   </div>
   );
 }
 
