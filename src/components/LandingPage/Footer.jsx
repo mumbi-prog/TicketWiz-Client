@@ -12,7 +12,7 @@ import "./landingpage.css";
 
 function Footer() {
   return (
-    <div className='footer'>
+    <section className='footer'>
         <div className="footer-content">
             <div className="abt">
                 <div>
@@ -59,7 +59,7 @@ function Footer() {
         <div className="copyright-notice">
             <p>&copy; 2023 TicketWiz. All rights reserved.</p>
         </div>
-    </div>
+    </section>
   )
 }
 
