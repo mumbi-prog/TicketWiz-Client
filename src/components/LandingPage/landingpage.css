@@ -8,19 +8,71 @@
     transition: all .50s ease;
 }
 
+  /* font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Serif Text', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair', serif; */
+
 :root{
     --text-color: #fff;
     --main-blue: #0A3DA6;
     --lighter-blue: #3e60a7;
-    --head-color: #000000;
+    --black: #000000;
     --button-color: #f70c9d;
+    --head-color: #242565;
 }
 
 /* clients styling begins */
-
+.clients{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.clients h2, p{
+ text-align: center;
+ font-family: 'DM Sans', sans-serif;
+}
+.clients h2{
+    color: var(--head-color);
+    font-weight: bold;
+    font-size: 40px;
+    padding-top: 20px;
+    margin: 0;
+}
+.clients p{
+    font-size: 14px;
+}
+.clients-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 40px;
+}
+.clients-container img {
+    width: 120px;
+    height: auto;
+}
+.c8{
+    width: 400px;
+    height: 200px;
+}
 /* clients styling ends */
 
-/* Footer styling begins */
+/* Footer styling begins */  
+.footer {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.footer-content .logo-title h2, h3 {
+    margin-top: 38px;
+    font-family: 'DM Serif Text', serif;
+    margin-left: -10px;
+}
+
 .footer-content {
     display: flex;
     flex-direction: row;
@@ -106,17 +158,6 @@
     
 }
   
-.footer-content .logo-title h2, h3 {
-    margin-top: 38px;
-    font-family: 'DM Serif Text', serif;
-    margin-left: -10px;
-}
-  
-.footer {
-    display: flex;
-    flex-direction: column;
-}
-  
 .social{
     display: flex;
     margin: 35px;
@@ -143,8 +184,5 @@
 }
 /* Footer styling ends */
 
-  /* font-family: 'DM Sans', sans-serif;
-  font-family: 'DM Serif Text', serif;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Playfair', serif; */
+
   
