@@ -1,20 +1,96 @@
 /* Footer styling begins */
-.footer-content{
+.footer-content {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     background-color: #3e60a7;
     color: white;
+    padding: 10px 40px 20px;
+    font-family: 'DM Serif Text', serif;
+    font-weight:lighter;
 }
-.footer-content .logo-title{
+
+.footer-content .logo-title {
     display: flex;
     flex-direction: row;
 }
-.footer-content .logo-title img{
+  
+.footer-content .logo-title img {
     height: 100px;
     width: auto;
 }
-.footer-content .logo-title h2{
-   margin-top: 30px;
+  
+.abt {
+    flex: 2;
 }
 
-/* Footer styling ends */
+.abt p{
+    width: 350px;
+    padding-left: 40px;
+    margin: 0;
+}
+  
+.links1, .links2 {
+    flex: 1; 
+    padding: 0 40px;
+}
+  
+.contact-details {
+    flex: 2;
+}
+  
+.links1 ul, .links2 ul {
+    list-style: none;
+    text-decoration: none;
+}
+  
+.links1 ul li, .links2 ul li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: -35px;
+}
+  
+.links1 ul li a, .links2 ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.links1 ul li a:hover, .links2 ul li a:hover{
+    color: #f184b7;
+    transform: translateX(-7px);
+    font-weight: 300;
+}
+
+.contact-icon{
+    padding-right: 10px;
+    font-size: larger;
+}
+
+.copyright-notice{
+    background-color: #0A3DA6;
+}
+.copyright-notice p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 12px;
+    
+}
+  
+.footer-content .logo-title h2, h3 {
+    margin-top: 38px;
+    font-family: 'DM Serif Text', serif;
+    margin-left: -10px;
+}
+  
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+  
+  /* Footer styling ends */
+  /* font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Serif Text', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Playfair', serif; */
+  
