@@ -1,7 +1,10 @@
 import './App.css';
+import Footer from './components/LandingPage/Footer';
 
 function App() {
-  return
+  return (
+    <Footer />
+  );
 }
 
 export default App;
