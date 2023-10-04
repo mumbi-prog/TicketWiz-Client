@@ -22,9 +22,57 @@
     --head-color: #242565;
 }
 
+section{
+    margin-bottom: 15px;
+}
+
+/* new-events styling begins */
+.new-event {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    font-family: 'DM Sans', sans-serif;
+    background: #d3d3d3;
+    height: 260px;
+    position: relative;
+}
+  
+.new-event-container {
+    position: relative;
+    width: 100%;
+}
+  
+.event-image {
+    width: 380px;
+    height: auto;
+    position: absolute;
+    top: -50px;
+    left: 130px;
+}
+  
+.new-event-content {
+    padding-top: 30px;
+}
+  
+.new-event .new-event-content p{
+    text-align: justify;
+    padding-right: 200px;
+    font-size: 14px;
+}
+.new-event-content button{
+    background-color: var(--button-color);
+    height: 50px;
+    width: 250px;
+    color: var(--text-color);
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    border-radius: 50px;
+}
+/* new-events styling ends */
 /* clients styling begins */
 .clients{
-    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +80,8 @@
 .clients h2, p{
  text-align: center;
 }
-.clients h2{
+h2{
+   
     color: var(--head-color);
     font-weight: bold;
     font-size: 40px;
@@ -63,15 +112,22 @@
 .footer {
     display: flex;
     flex-direction: column;
-    
+    margin-bottom: 0;
 }
 
 .footer-content .logo-title h2, h3 {
     margin-top: 38px;
     font-family: 'DM Serif Text', serif;
     margin-left: -10px;
+    color: var(--text-color);
+    padding: 0;
+    font-weight: 500;
 }
-
+.footer-content .logo-title h2{
+    top: 0;
+    font-size: 25px;
+    font-weight: 500;
+}
 .footer-content {
     display: flex;
     flex-direction: row;
@@ -113,8 +169,6 @@
 .links2{
     margin-left: -50px;
 }
-  
-
   
 .links1 ul li, .links2 ul li {
     margin-bottom: 10px;

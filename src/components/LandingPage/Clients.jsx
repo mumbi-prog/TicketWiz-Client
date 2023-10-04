@@ -14,7 +14,7 @@ import "./landingpage.css";
 function Clients() {
   return (
     <section className="clients">
-        <h2>Our Clients</h2>
+        <h2>Our clients</h2>
         <p>Here are just a few of the organizations we've had the privilege of working with</p>
         <div className="clients-container">
             <img src={client1} alt="" />
