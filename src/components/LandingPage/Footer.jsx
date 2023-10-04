@@ -50,7 +50,7 @@ function Footer() {
                 </ul>
             </div>
             <div className="contact-details">
-                <h3>Get in Touch</h3>
+                <h3 className='pb-[10px]'>Get in Touch</h3>
                 <p><FaLocationDot className='contact-icon'/> 123 Mwia Lane, Nairobi</p>
                 <p><FaPhone className='contact-icon'/> +254 719642456 | +254 728510900</p>
                 <p><FaEnvelope className='contact-icon'/> abc.email.com</p>

@@ -13,20 +13,20 @@ import "./landingpage.css";
 
 function Clients() {
   return (
-    <section className="clients">
-        <h2>Our clients</h2>
-        <p>Here are just a few of the organizations we've had the privilege of working with</p>
-        <div className="clients-container">
-            <img src={client1} alt="" />
-            <img src={client2} alt="" />
-            <img src={client3} alt="" />
-            <img src={client4} alt="" />
-            <img src={client8} alt="" />
-            <img src={client5} alt="" />
-            <img src={client7} alt="" />
-            <img src={client6} alt="" />
-            <img src={client9} alt="" />
-            <img src={client10} alt="" />
+    <section className="clients flex flex-col items-center">
+        <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">Our clients</h2>
+        <p className="text-center text-sm pt-[10px]">Here are just a few of the organizations we've had the privilege of working with</p>
+        <div className="clients-container grid grid-cols-5 gap-x-[40px] items-center">
+            <img className="w-[120px] h-auto" src={client1} alt="" />
+            <img className="w-[120px] h-auto" src={client2} alt="" />
+            <img className="w-[120px] h-auto" src={client3} alt="" />
+            <img className="w-[120px] h-auto" src={client4} alt="" />
+            <img className="w-[120px] h-auto" src={client8} alt="" />
+            <img className="w-[120px] h-auto" src={client5} alt="" />
+            <img className="w-[120px] h-auto" src={client7} alt="" />
+            <img className="w-[120px] h-auto" src={client6} alt="" />
+            <img className="w-[120px] h-auto" src={client9} alt="" />
+            <img className="w-[120px] h-auto" src={client10} alt="" />
         </div>
     </section>
   )
