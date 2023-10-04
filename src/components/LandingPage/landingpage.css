@@ -31,7 +31,6 @@
 }
 .clients h2, p{
  text-align: center;
- font-family: 'DM Sans', sans-serif;
 }
 .clients h2{
     color: var(--head-color);
