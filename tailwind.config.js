@@ -19,6 +19,8 @@ module.exports = {
         'black': '#000000',
         'button-color': '#f70c9d',
         'head-color': '#242565',
+        'gradient-color1': '#7b46ed',
+        'gradient-color2' : '#22ccc2',
       },
   },
   plugins: [],

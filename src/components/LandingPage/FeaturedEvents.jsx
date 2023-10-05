@@ -42,15 +42,15 @@ const FeaturedEvents = () => {
   ];
 
   return (
-    <div className="container mx-auto py-12">
-      <h2 className="text-3xl font-semibold text-gray-800 mb-6">
+    <div className="container mx-auto py-12 pl-[30px] pr-[30px]">
+      <h2 className="font-sans text-head-color font-bold text-4xl pt-[5px] pb-[15px] ">
         Featured Events
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {eventsData.map((event, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300"
+            className="bg-white rounded-2xl overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300"
           >
             <img
               src={event.image}
@@ -59,27 +59,27 @@ const FeaturedEvents = () => {
             />
             <div className="flex">
               <div className="bg-white p-4">
-                <span className="text-blue-600 ml-2 font-small text-xs">
+                <span className="text-blue-600 ml-2 font-bold text-xs">
                   {event.month}
                 </span>
                 <br />
-                <span className="text-gray-800 ml-2 font-bold text-lg">
+                <span className="text-gray-800 ml-2 font-bold text-4xl">
                   {event.date}
                 </span>
               </div>
-              <div className="w-3/4 bg-white text-white p-4">
+              <div className="w-3/4 bg-white text-white p-4 font-sans" >
                 <div className="mb-2">
                   <h3 className="text-lg font-semibold text-gray-800">
                     {event.title}
                   </h3>
                   <div className="flex items-center">
                     <FaLocationDot className="text-gray-600" />
-                    <p className="text-gray-600 ml-2 font-small text-sm">
+                    <p className="font-sans text-gray-600 ml-2 font-small text-sm">
                       {event.description}
                     </p>
                   </div>
                 </div>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">
+                <button className="bg-button-color text-white h-[30px] w-[150px] rounded-full mt-2 pt-[3px] pb-[3px] ml-[-10px]">
                   Book Ticket
                 </button>
               </div>
