@@ -12,7 +12,7 @@ const HeroSection = ({ children }) => {
       <div className="absolute inset-0 bg-sky-400/90 opacity-50"></div>
       <div className="container mx-auto pl-1">
         <div className="max-w-xs">
-          {/* Set a maximum width, adjust 'max-w-xs' as needed */}
+          {/* {/* } */}
           <h1 className="text-4xl font-bold mb-4">
             Unleash the Power of events - From concept to experience
           </h1>
