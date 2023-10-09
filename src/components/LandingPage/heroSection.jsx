@@ -14,7 +14,7 @@ const HeroSection = ({ children }) => {
         style={{ zIndex: 0 }}></div>
         <div className="content-container relative mx-auto pl-1 flex flex-row z-10">
           <div className="w-[500px] pl-[50px] pt-[40px]">
-            {/* Set a maximum width, adjust 'max-w-xs' as needed */}
+          
             <h1 className="font-sans text-4xl font-bold mb-4">
               Unleash the Power of events - From concept to experience
             </h1>
