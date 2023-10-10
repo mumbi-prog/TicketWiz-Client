@@ -11,5 +11,32 @@ const TicketSales = () => {
             .catch((error) => console.error('Error fetching events', error));
     }, []);
 
-    return 
-}
+    return (
+        <div>
+          <h2>Ticket Sales</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Tickets Sold</th>
+                <th>Total Revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.title}</td>
+                  <td>{event.date}</td>
+                  <td>{event.ticketsSold}</td>
+                  <td>{event.totalRevenue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+    );
+};
+
+
+export default TicketSales;
