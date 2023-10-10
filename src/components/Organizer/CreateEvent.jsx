@@ -47,5 +47,111 @@ const CreateEvent = () => {
     };
 
 
-    re
-}
+    return (
+        <div>
+          <h2>Create Event</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={eventDetails.title}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Description:
+              <textarea
+                name="description"
+                value={eventDetails.description}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Category:
+              <input
+                type="text"
+                name="category"
+                value={eventDetails.category}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Image URL:
+              <input
+                type="text"
+                name="image_url"
+                value={eventDetails.image_url}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Date:
+              <input
+                type="date"
+                name="date"
+                value={eventDetails.date}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Start Time:
+              <input
+                type="time"
+                name="start_time"
+                value={eventDetails.start_time}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              End Time:
+              <input
+                type="time"
+                name="end_time"
+                value={eventDetails.end_time}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Venue Name:
+              <input
+                type="text"
+                name="venue_name"
+                value={eventDetails.venue_name}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Event Location:
+              <input
+                type="text"
+                name="event_location"
+                value={eventDetails.event_location}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <label>
+              Available Tickets Count:
+              <input
+                type="number"
+                name="available_tickets_count"
+                value={eventDetails.available_tickets_count}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <button type="submit">Create Event</button>
+          </form>
+        </div>
+    );
+};
