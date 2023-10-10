@@ -28,8 +28,10 @@ const TicketSales = () => {
                 <tr key={event.id}>
                   <td>{event.title}</td>
                   <td>{event.date}</td>
-                  <td>{event.ticketsSold}</td> // to replace with correct property name
-                  <td>{event.totalRevenue}</td>  // to replace with correct property name
+                  <td>{event.ticketsSold}</td> 
+                  {/* // to replace with correct property name */}
+                  <td>{event.totalRevenue}</td> 
+                   {/* // to replace with correct property name */}
                 </tr>
               ))}
             </tbody>

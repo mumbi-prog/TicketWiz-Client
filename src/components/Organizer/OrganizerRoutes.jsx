@@ -1,17 +1,17 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import CreateEvent from './organizer/CreateEvent';
-import TicketSales from './organizer/TicketSales';
-import OrganizerProfile from './organizer/OrganizerProfile'
+import { Routes, Route } from 'react-router-dom';
+import CreateEvent from './CreateEvent';
+import TicketSales from './Ticketsales';
+import OrganizerProfile from './OrganizerProfile';
 
 
 const OrganizerRoutes = () => {
     return (
-        <Switch>
+        <Routes>
             <Route path="/organizer/create-event" component={CreateEvent} />
             <Route path="/organizer/ticket-sales" component={TicketSales} />
             <Route path="/organizer/profile" component={OrganizerProfile} />
-        </Switch>
+        </Routes>
     );
 };
 

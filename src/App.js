@@ -7,7 +7,7 @@ import Clients from './components/LandingPage/Clients';
 import Newevents from './components/LandingPage/Newevents';
 import Footer from './components/LandingPage/Footer';
 import { BrowserRouter as Router } from 'react-router-dom';
-import OrganizerRoutes from './OrganizerRoutes';
+import OrganizerRoutes from './components/Organizer/OrganizerRoutes';
 
 function App() {
   return (
@@ -19,7 +19,8 @@ function App() {
         <Newevents />
         <Clients />
         <Footer />
-        <OrganizerRoutes /> {/* Include OrganizerRoutes component */}
+        <OrganizerRoutes /> 
+        {/* Include OrganizerRoutes component */}
       </div>
     </Router>
   
