@@ -33,13 +33,13 @@ const CreateEvent = () => {
                 },
                 body: JSON.stringify(eventDetails),
             });
-            if (!response.ok) {
+            if (response.ok) {
                 // event created successfully
                 console.log('Event created successfully!');
                 // redirect to event details page
             } else {
                 //handle error cases
-                console.log('Failed to create event.')
+                console.log('Failed to create event.');
             }
         }   catch (error) {
             console.error('Error creating event:', error);
