@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const CreateEvent = () => {
-    const [eventDetails, setEventDeatails] = useState({
+    const [eventDetails, setEventDetails] = useState({
         title: '',
         description: '',
         category: '', // Add other event details fields here
@@ -12,5 +12,15 @@ const CreateEvent = () => {
         venue_name: '',
         event_location: '',
         available_tickets_count: 0,
-    })
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setEventDetails({
+            ...eventDetails,
+            [name]: value,
+        });
+    };
+
+    
 }
