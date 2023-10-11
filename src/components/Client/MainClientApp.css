@@ -16,4 +16,8 @@ main{
     height: 100vh;
     transition: all 0.8s;
 }
-
+.logo-container{
+    display: flex;
+    padding: 5px 10px 25px 0px;
+    margin-left: -20px;
+}
