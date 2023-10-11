@@ -18,7 +18,7 @@ function MainClientApp() {
                 <Route path='/bookticket'element={<BookTicket/>} />
                 <Route path='/ticketwallet'element={<TicketWallet/>} />
                 <Route path='/eventhistory'element={<EventHistory/>} />
-                <Route path='/profile'element={<Profile/>} />
+                <Route path='/customerprofile'element={<Profile/>} />
             </Routes>
         </SideBar>
     </BrowserRouter>

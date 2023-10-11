@@ -13,7 +13,7 @@ function SideBar({children}) {
         {path:'/bookticket', name:'Book Ticket',icon: <BsCalendar2EventFill/>},
         {path:'/eventhistory', name: 'Event History', icon: <FaHistory/>},
         {path:'/ticketwallet', name:'Ticket Wallet', icon: <BsFillTicketPerforatedFill/>},
-        {path:'/profile', name:'Profile', icon: <FaUserAlt/>}
+        {path:'/customerprofile', name:'Profile', icon: <FaUserAlt/>}
     ]
   return (
     <div className='main-container font-dm-sans'>
