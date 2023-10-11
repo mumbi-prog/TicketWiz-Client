@@ -18,6 +18,7 @@ main{
 }
 .logo-container{
     display: flex;
+    align-items: center;
     padding: 5px 10px 25px 0px;
     margin-left: -20px;
 }
