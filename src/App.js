@@ -8,27 +8,19 @@ import FeaturedEvents from './components/LandingPage/FeaturedEvents';
 import Clients from './components/LandingPage/Clients';
 import Newevents from './components/LandingPage/Newevents';
 import Footer from './components/LandingPage/Footer';
+import { BrowserRouter as Router } from 'react-router-dom';
+import OrganizerRoutes from './components/Organizer/OrganizerRoutes';
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Element name="home">
-        <HeroSection />
-      </Element>
-      <Element name="featured-events">
-        <FeaturedEvents />
-      </Element>
-      <Element name="create-events">
-        <Newevents />
-      </Element>
-      <Element name="our-clients">
-        <Clients />
-      </Element>
-      <Element name="contact">
-        <Footer />
-      </Element>
-    </div>
+   <div>
+      <Navbar/>
+      <HeroSection/>
+      <FeaturedEvents/>
+      <Newevents />
+      <Clients />
+      <Footer />
+   </div>
   );
 }
 
