@@ -6,6 +6,14 @@ import { NavLink } from 'react-router-dom';
 import logo from './../../images/logo.png'
 
 function SideBar({children}) {
+
+    const navItem = [
+        {path:'/', name:'Dashboard', icon: <RiDashboardFill/>},
+        {path:'/bookticket', name:'Book Ticket',icon: <BsCalendar2EventFill/>},
+        {path:'/eventhistory', name: 'Event History', icon: <FaHistory/>},
+        {path:'/ticketwallet', name:'Ticket Wallet', icon: <BsFillTicketPerforatedFill/>},
+        {path:'/profile', name:'Profile', icon: <FaUserAlt/>}
+    ]
   return (
     <div className='container'>
         <div className="sidebar">
@@ -16,6 +24,14 @@ function SideBar({children}) {
                     <FaBars/>
                 </div>
             </div>
+            {
+                navItem.map((item, index)=>(
+                    <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                        <div className="icon">{item.icon}</div>
+                        <div className="link-text">{item.name}</div>
+                    </NavLink>
+                ))
+            }
         </div>
         <main>{children}</main>
     </div>
