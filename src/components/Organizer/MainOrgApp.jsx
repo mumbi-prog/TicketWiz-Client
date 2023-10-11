@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import CreateEvent from './CreateEvent';
 import TicketSales from './Ticketsales';
 import OrganizerProfile from './OrganizerProfile';
+import './../Client/MainClientApp.css';
 
 function MainOrgApp() {
   return (
@@ -12,6 +13,7 @@ function MainOrgApp() {
         <OrganiserSidebar>
             <Routes>
                 <Route path='/' element={<Dashboard/>}></Route>
+                <Route path='/dashboard'element={<Dashboard/>} /> 
                 <Route path='/create-event' element={<CreateEvent/>}></Route>
                 <Route path='/ticketsales' element={<TicketSales/>}></Route>
                 <Route path='/organiserprofile' element={<OrganizerProfile/>}></Route>
