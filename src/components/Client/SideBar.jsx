@@ -16,7 +16,7 @@ function SideBar({children}) {
         {path:'/profile', name:'Profile', icon: <FaUserAlt/>}
     ]
   return (
-    <div className='container'>
+    <div className='main-container'>
         <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar">
             <div className="logo-container">
                 <img src={logo} alt="" style={{display: isOpen ? "block" : "none"}} className="logo"/>
