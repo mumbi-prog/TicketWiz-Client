@@ -55,3 +55,10 @@ main{
     background: #fff;
     color: #6176BA;
 }
+.icon{
+    font-size: 20px;
+} 
+.link-text{
+    font-size: 15px;
+    padding-left: 0;
+}
