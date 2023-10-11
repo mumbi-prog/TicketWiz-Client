@@ -22,3 +22,16 @@ main{
     padding: 5px 10px 25px 0px;
     margin-left: -20px;
 }
+.logo{
+    width: 150px;
+    height: auto;
+}
+.logo-container h3{
+    margin-left: -20px;
+}
+.menu-bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 80px;
+    cursor: pointer;
+}

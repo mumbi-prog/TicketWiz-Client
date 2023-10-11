@@ -16,12 +16,12 @@ function SideBar({children}) {
         {path:'/profile', name:'Profile', icon: <FaUserAlt/>}
     ]
   return (
-    <div className='main-container'>
+    <div className='main-container font-dm-sans'>
         <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar">
             <div className="logo-container">
                 <img src={logo} alt="" style={{display: isOpen ? "block" : "none"}} className="logo"/>
                 <h3 style={{display: isOpen ? "block" : "none"}}>TicketWiz</h3>
-                <div style={{marginLeft: isOpen ? "20px" : "30px", paddingTop: isOpen ? "5px" : "20px"}} className="bars">
+                <div style={{marginLeft: isOpen ? "20px" : "30px", paddingTop: isOpen ? "5px" : "20px"}} className="menu-bars">
                     <FaBars onClick={toggle}/>
                 </div>
             </div>
