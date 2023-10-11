@@ -10,8 +10,8 @@ function SideBar({children}) {
     const toggle = () => setIsOpen (!isOpen);
     const navItem = [
         {path:'/', name:'Dashboard', icon: <RiDashboardFill/>},
-        {path:'/create-event', name:'Book Ticket',icon: <BsCalendar2EventFill/>},
-        {path:'/ticketsales', name:'Ticket Wallet', icon: <BsFillTicketPerforatedFill/>},
+        {path:'/create-event', name:'Create Event',icon: <BsCalendar2EventFill/>},
+        {path:'/ticketsales', name:'Ticket Sales', icon: <BsFillTicketPerforatedFill/>},
         {path:'/organiserprofile', name:'Profile', icon: <FaUserAlt/>}
     ]
   return (

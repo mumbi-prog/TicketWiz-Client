@@ -1,19 +1,12 @@
 import React from 'react';
-import { Element } from 'react-scroll';
+import MainOrgApp from './components/Organizer/MainOrgApp';
 
-import './App.css';
-import Navbar from './components/LandingPage/Navbar';
-import HeroSection from './components/LandingPage/heroSection';
-import FeaturedEvents from './components/LandingPage/FeaturedEvents';
-import Clients from './components/LandingPage/Clients';
-import Newevents from './components/LandingPage/Newevents';
-import Footer from './components/LandingPage/Footer';
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Element name="home">
+      <MainOrgApp />
+      {/* <Element name="home">
         <HeroSection />
       </Element>
       <Element name="featured-events">
@@ -27,7 +20,7 @@ function App() {
       </Element>
       <Element name="contact">
         <Footer />
-      </Element>
+      </Element> */}
     </div>
   );
 }
