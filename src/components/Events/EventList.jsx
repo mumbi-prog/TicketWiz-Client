@@ -19,7 +19,7 @@ const EventList = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 12;
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -48,22 +48,17 @@ const EventList = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-  
+
   return (
     <section>
       <Navbar/>
-    <div className='event-container font-sans flex flex-col items-center'>
+    <div className='event-container font-sans flex flex-col items-center '>
       <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">All events</h2>
       <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search by title"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <input type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       </div>
       <div className="event-list">
-        {events.map((event) => (
+        {paginatedEvents.map((event) => (
           <div key={event.id} className="event-card">
             <div className="event-img">
               <img src={event.image_url} alt={event.title} />
@@ -83,6 +78,29 @@ const EventList = () => {
             <button className="bg-button-color text-white h-[35px] w-[120px] rounded-full mt-0 align-center ml-[75px] mb-[15px]">Book Ticket</button>
           </div>
         ))}
+      </div>
+      <div className="pagination">
+        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        {Array.from(
+          { length: Math.ceil(filteredEvents.length / itemsPerPage) },
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+            >
+              {index + 1}
+            </button>
+          )
+        )}
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === Math.ceil(filteredEvents.length / itemsPerPage)}
+        >
+          Next
+        </button>
       </div>
     </div>
     </section>
