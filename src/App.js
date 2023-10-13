@@ -13,7 +13,6 @@ import EventList from './components/Events/EventList';
 function App() {
   return (
     <div>
-      <h1>a</h1>
       <EventList />
       {/* <Element name="home">
         <HeroSection />

@@ -1,19 +1,60 @@
 .event-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin: 15px 40px;
+    gap: 30px;
+    margin: 20px 60px;
 }
   
 .event-card {
     border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.event-img img{
+ height: 150px;
+ width: 350px;
+ margin: 0;
+ object-fit: cover; /* Maintain image aspect ratio within the container */
+ border-radius: 20px 20px 0 0;
+}
 .event-selected-details{
     display: flex;
+    padding: 10px 20px;
+}
+.eve-nue{
+    padding-left: 22px;
+}
+.eve-nue h3{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+.venue1{
+    display: flex;
+}
+.local1{
+    font-size: 15px;
+    margin-top: 2px;
+}
+.location-icon1{
+    margin: 4px 5px 0 0;
+    font-weight: lighter;
+    font-size: medium;
+    margin-top: 5px;
+}
+.event-date{
+    font-weight: 600;
+    align-items: center;
+    text-align: center;
+}
+.event-date .month{
+    color:blue;
+    font-size: 13px;
+}
+.event-date .day{
+    font-size: 30px;
+    margin-top: -10px;
+    font-weight: bold;
 }
  
   
