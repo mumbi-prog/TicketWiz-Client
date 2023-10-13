@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
-import {FaLocationDot} from "react-icons/fa6";
+import { FaLocationDot } from 'react-icons/fa6';
 import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
@@ -8,9 +8,9 @@ function formatDate(dateString) {
   const month = date.toLocaleDateString(undefined, { month: 'short' });
   const day = date.getDate();
   return (
-    <div className="event-date">
-      <p className="month">{month}</p>
-      <p className="day">{day}</p>
+    <div className="event-date font-sans font-bold flex flex-col items-center justify-center mt-[2px]">
+      <p className="month text-main-blue font-medium text-sm">{month}</p>
+      <p className="day text-3xl mt-[-2px]">{day}</p>
     </div>
   );
 }
@@ -23,9 +23,9 @@ const EventList = () => {
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
-    .then((response) => response.json())
-    .then((data) => setEvents(data))
-    .catch((error) => console.error('Error fetching events:', error));
+      .then((response) => response.json())
+      .then((data) => setEvents(data))
+      .catch((error) => console.error('Error fetching events:', error));
   }, []);
 
   const filteredEvents = events.filter((event) =>
@@ -50,59 +50,77 @@ const EventList = () => {
   };
 
   return (
-    <section className='event mb-[30px]'>
-      <Navbar/>
-    <div className='event-container font-sans flex flex-col items-center '>
-      <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">All events</h2>
-      <div className="search-bar">
-        <input className='search-input' type="text" placeholder="Search event" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-      </div>
-      <div className="event-list">
-        {paginatedEvents.map((event) => (
-          <div key={event.id} className="event-card">
-            <div className="event-img">
-              <img src={event.image_url} alt={event.title} />
-            </div> 
-            <div className="event-selected-details">
-              <div className="event-date">
-                <p>{formatDate(event.date)}</p>
+    <section className="event mb-[30px]">
+      <Navbar />
+      <div className="event-container font-sans flex flex-col items-center ">
+        <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">
+          All events
+        </h2>
+        <div className="search-bar border border-black p-[5px] rounded-md mt-[15px] mb-[-15px] w-[300px] h-[35px]">
+          <input
+            className="search-input w-full border-none outline-none py-[1px] px-[5px] font-light font-playfair text-sm"
+            type="text"
+            placeholder="Search event"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+
+        <div className="event-list grid grid-cols-4 gap-[30px] mx-[20px] my-[60px]">
+          {paginatedEvents.map((event) => (
+            <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md">
+              <div className="event-img">
+                <img src={event.image_url} alt={event.title} className="h-[150px] w-[260px] object-cover rounded-t-lg" />
               </div>
-              <div className="eve-nue">
-                <h3>{event.title}</h3>
-                <div className="venue1">
-                  <p><FaLocationDot className='location-icon1'/></p>
-                  <p className='local1'>{event.venue_name}, {event.event_location}</p>
+              <div className="event-selected-details flex p-5">
+                <div className="event-date">
+                  <p>{formatDate(event.date)}</p>
+                </div>
+                <div className="eve-nue pl-6">
+                  <h3 className="text-lg font-bold uppercase">{event.title}</h3>
+                  <div className="venue1 flex items-center">
+                    <p className="text-black text-md mr-[5px] mt-[5px]">
+                      <FaLocationDot className="location-icon1" />
+                    </p>
+                    <p className="local1 text-sm mt-[5px]">{event.venue_name}, {event.event_location}</p>
+                  </div>
                 </div>
               </div>
+              <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]">
+                Book Ticket
+              </button>
             </div>
-            <button className="bg-button-color text-white h-[35px] w-[120px] rounded-full mt-0 align-center ml-[75px] mb-[15px]">Book Ticket</button>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="pagination flex justify-center items-center my-[5px]">
+          <button
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+            className="prev-next "
+          >
+            Previous
+          </button>
+          {Array.from(
+            { length: Math.ceil(filteredEvents.length / itemsPerPage) },
+            (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`page-button-num mx-[5px] ${currentPage === index + 1 ? 'active' : ''}`}
+              >
+                {index + 1}
+              </button>
+            )
+          )}
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === Math.ceil(filteredEvents.length / itemsPerPage)}
+            className="prev-next"
+          >
+            Next
+          </button>
+        </div>
       </div>
-      <div className="pagination">
-        <button onClick={goToPreviousPage} disabled={currentPage === 1} className='prev-next'>
-          Previous
-        </button>
-        {Array.from(
-          { length: Math.ceil(filteredEvents.length / itemsPerPage) },
-          (_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index + 1)}
-              className={`page-button-num ${currentPage === index + 1 ? 'active' : ''}`}
-            >
-              {index + 1}
-            </button>
-          )
-        )}
-        <button
-          onClick={goToNextPage}
-          disabled={currentPage === Math.ceil(filteredEvents.length / itemsPerPage) } className='prev-next'
-        >
-          Next
-        </button>
-      </div>
-    </div>
     </section>
   );
 };
