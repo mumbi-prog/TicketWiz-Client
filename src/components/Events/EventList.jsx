@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 
+function formatDate(dateString) {
+  const options = { day: 'numeric', month: 'short'};
+  const date = new Date(dateString);
+  return date.toLocaleDateString(undefined, options);
+}
+
 const EventList = () => {
   const [events, setEvents] = useState([]);
 
@@ -20,7 +26,7 @@ const EventList = () => {
           </div> 
           <div className="event-selected-details">
             <div className="event-date">
-              <p>{event.date}</p>
+              <p>{formatDate(event.date)}</p>
             </div>
             <div className="eve-nue">
               <h3>{event.title}</h3>
