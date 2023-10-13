@@ -50,12 +50,12 @@ const EventList = () => {
   };
 
   return (
-    <section>
+    <section className='event mb-[30px]'>
       <Navbar/>
     <div className='event-container font-sans flex flex-col items-center '>
       <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">All events</h2>
       <div className="search-bar">
-        <input className='search-input' type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        <input className='search-input' type="text" placeholder="Search event" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       </div>
       <div className="event-list">
         {paginatedEvents.map((event) => (
@@ -80,7 +80,7 @@ const EventList = () => {
         ))}
       </div>
       <div className="pagination">
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+        <button onClick={goToPreviousPage} disabled={currentPage === 1} className='prev-next'>
           Previous
         </button>
         {Array.from(
@@ -89,7 +89,7 @@ const EventList = () => {
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
-              className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+              className={`page-button-num ${currentPage === index + 1 ? 'active' : ''}`}
             >
               {index + 1}
             </button>
@@ -97,7 +97,7 @@ const EventList = () => {
         )}
         <button
           onClick={goToNextPage}
-          disabled={currentPage === Math.ceil(filteredEvents.length / itemsPerPage)}
+          disabled={currentPage === Math.ceil(filteredEvents.length / itemsPerPage) } className='prev-next'
         >
           Next
         </button>

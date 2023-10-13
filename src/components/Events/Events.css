@@ -14,7 +14,7 @@
  height: 150px;
  width: 350px;
  margin: 0;
- object-fit: cover; /* Maintain image aspect ratio within the container */
+ object-fit: cover;
  border-radius: 20px 20px 0 0;
 }
 .event-selected-details{
@@ -52,19 +52,19 @@
     font-size: 13px;
 }
 .event-date .day{
-    font-size: 30px;
+    font-size: 28px;
     margin-top: -10px;
-    font-weight: bold;
+    font-weight: 650;
 }
 .search-bar {
     margin-top: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     border: 1px solid #000; 
     padding: 5px;
     border-radius: 5px;
-    width: 400px;
+    width: 300px;
     height: 30px;
 }
 .search-bar input {
@@ -74,6 +74,23 @@
     width: 100%;
     font-weight: lighter;
     font-family: 'Playfair';
+}
+.prev-next{
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow:  2px 2px 10px #b1b1b1,
+                -2px -2px 10px #ffffff;
+    margin: 20px;
+    align-items: center;
+    padding: 4px 10px;
+}
+.prev-next:hover{
+    background: #e0e0e0;
+    box-shadow:  2px 2px 10px #a6d3ea,
+                -2px -2px 10px #ffffff;
+}
+.page-button-num{
+    margin: 5px;
 }
   
  
