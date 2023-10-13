@@ -15,10 +15,11 @@ function formatDate(dateString) {
   );
 }
 
-
 const EventList = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -30,6 +31,16 @@ const EventList = () => {
   const filteredEvents = events.filter((event) =>
     event.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedEvents = filteredEvents.slice(startIndex, endIndex);
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
     <section>
