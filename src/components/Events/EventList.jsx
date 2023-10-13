@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import {FaLocationDot} from "react-icons/fa6";
+import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -17,6 +18,7 @@ function formatDate(dateString) {
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -25,9 +27,23 @@ const EventList = () => {
     .catch((error) => console.error('Error fetching events:', error));
   }, []);
 
+  const filteredEvents = events.filter((event) =>
+    event.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
+    <section>
+      <Navbar/>
     <div className='event-container font-sans flex flex-col items-center'>
       <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">All events</h2>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search by title"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       <div className="event-list">
         {events.map((event) => (
           <div key={event.id} className="event-card">
@@ -51,6 +67,7 @@ const EventList = () => {
         ))}
       </div>
     </div>
+    </section>
   );
 };
 
