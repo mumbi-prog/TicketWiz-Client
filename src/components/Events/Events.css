@@ -1,3 +1,19 @@
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin: 15px 40px;
+}
+  
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.event-selected-details{
+    display: flex;
+}
  
   
