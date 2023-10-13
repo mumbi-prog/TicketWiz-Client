@@ -42,6 +42,13 @@ const EventList = () => {
     }
   };
 
+  const goToNextPage = () => {
+    const totalPages = Math.ceil(filteredEvents.length / itemsPerPage);
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  
   return (
     <section>
       <Navbar/>
