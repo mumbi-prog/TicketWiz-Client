@@ -55,7 +55,7 @@ const EventList = () => {
     <div className='event-container font-sans flex flex-col items-center '>
       <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">All events</h2>
       <div className="search-bar">
-        <input type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        <input className='search-input' type="text" placeholder="Search by title" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       </div>
       <div className="event-list">
         {paginatedEvents.map((event) => (
