@@ -8,10 +8,10 @@ function formatDate(dateString) {
   const day = date.getDate();
   const year = date.getFullYear(); 
   return (
-    <div className="event-date font-sans font-bold flex flex-col items-center justify-center mt-[2px]">
+    <div className="event-date font-sans font-bold flex flex-col items-center justify-left mt-[2px]">
       <p className="month text-main-blue font-medium text-sm">{month}</p>
       <p className="day text-3xl mt-[-2px]">{day}</p>
-      <p className="year text-sm text-gray-500 mt-1">{year}</p> 
+      <p className="year text-main-blue font-medium text-sm">{year}</p> 
     </div>
   );
 }
@@ -27,14 +27,19 @@ function EventDetails({ eventId }) {
       .catch((error) => console.error('Cannot fetch details:', error));
   }, [eventId]);
 
+  if (!event) {
+    return <div>Loading event details...</div>;
+  }
+
   return (
-    <div className="event-details">
+    <div className="event-details-container">
+      <div className="event-details">
       <div className="event-image">
-        <img src={event.image_url} alt={event.title} />
+        <img src={event.image_url} alt={event.title}/>
       </div>
       <div className="event-info">
         <div className="date-and-title">
-          <p>Date: {formatDate(event.date)}</p>
+          <p>{formatDate(event.date)}</p>
           <h2 className="text-xl font-bold mb-3">{event.title}</h2>
         </div>
         <div className="venue1 flex items-center">
@@ -46,6 +51,7 @@ function EventDetails({ eventId }) {
           <p>{event.start_time} to {event.end_time}</p>
         </div>
         <p className='event-desc'>{event.description}</p>
+      </div>
       </div>
       <div className="event-actions">
         <button className="btn btn-primary">Get Ticket</button>

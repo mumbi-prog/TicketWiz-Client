@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
-import EventDetails from './EventDetails';
-// import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -17,7 +15,6 @@ function formatDate(dateString) {
 }
 
 const EventList = () => {
-  const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,10 +27,6 @@ const EventList = () => {
       .catch((error) => console.error('Error fetching events:', error));
   }, []);
 
-  const handleBtnClick = (eventId) => {
-    setSelectedEvent(eventId);
-  };
-  
   const filteredEvents = events.filter((event) =>
     event.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -57,7 +50,6 @@ const EventList = () => {
 
   return (
     <section className="event mb-[30px]">
-      {/* <Navbar /> */}
       <div className="event-container font-sans flex flex-col items-center ">
         <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">
           All events

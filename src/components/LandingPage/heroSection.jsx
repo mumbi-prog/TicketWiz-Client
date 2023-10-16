@@ -1,6 +1,7 @@
 import React from "react";
 import bkg1 from './../../images/bkg1.jpg'
 import bkg3 from './../../images/bkg3.png'
+import { Link } from "react-router-dom";
 
 const HeroSection = ({ children }) => {
   return (
@@ -22,9 +23,9 @@ const HeroSection = ({ children }) => {
               Where Every Idea Blossoms into a Spectacular Event, Creating
               Memories that Last a Lifetime
             </p>
-            <button className="bg-button-color text-white h-[50px] w-[250px] rounded-full mt-[5px]">
-              Find Your Next Event
-            </button>
+             <Link to="/events" className="bg-button-color text-white px-[30px] py-[13px] h-[50px] w-[300px] mt-[5px] rounded-full">
+                Find Your Next Event
+            </Link>
           </div>
           <div className="bandimg ml-auto">
             <img src={bkg3} alt="" className="w-[500px] h-auto mb-0 justify-between mt-[-87px]" />
