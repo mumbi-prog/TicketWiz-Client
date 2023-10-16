@@ -17,6 +17,7 @@ function formatDate(dateString) {
 }
 
 const EventList = () => {
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,6 +30,10 @@ const EventList = () => {
       .catch((error) => console.error('Error fetching events:', error));
   }, []);
 
+  const handleBtnClick = (eventId) => {
+    setSelectedEvent(eventId);
+  };
+  
   const filteredEvents = events.filter((event) =>
     event.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
