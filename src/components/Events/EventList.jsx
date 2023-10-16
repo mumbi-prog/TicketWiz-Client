@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
+import EventDetails from './EventDetails';
 // import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
