@@ -31,9 +31,14 @@ const Dashboard = () => {
     });
   }, []);
 
-  const handleUpdateEvent = (eventID) => {
+  const handleUpdateEvent = (eventId) => {
     // to do
     console.log('Update event with ID ${eventID}')
+  }
+
+  const handleDeleteEvent = (eventId) => {
+    // to do
+    console.log('Delete event with ID ${eventId}')
   }
 
 
