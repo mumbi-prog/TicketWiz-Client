@@ -7,9 +7,9 @@ function formatDate(dateString) {
   const month = date.toLocaleDateString(undefined, { month: 'short' });
   const day = date.getDate();
   return (
-    <div className="event-date font-sans font-bold flex flex-col items-center justify-center mt-[2px]">
+    <div className="event-date font- font-bold flex flex-col items-center justify-center mt-[2px]">
       <p className="month text-main-blue font-medium text-sm">{month}</p>
-      <p className="day text-3xl mt-[-2px]">{day}</p>
+      <p className="day text-3xl mt-[-2px] font-bold">{day}</p>
     </div>
   );
 }
@@ -75,7 +75,7 @@ const EventList = () => {
                   <p>{formatDate(event.date)}</p>
                 </div>
                 <div className="eve-nue pl-6">
-                  <h3 className="text-lg font-bold uppercase">{event.title}</h3>
+                  <h3 className="e-title font-sans mt-[0] text-lg font-bold uppercase text-black ml-[2px]">{event.title}</h3>
                   <div className="venue1 flex items-center">
                     <p className="text-black text-md mr-[5px] mt-[5px]">
                       <FaLocationDot className="location-icon1" />
