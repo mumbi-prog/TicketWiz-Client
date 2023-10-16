@@ -1,5 +1,6 @@
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
+// import { Link } from "react-router-dom";
 
 const FeaturedEvents = () => {
   const eventsData = [
@@ -88,8 +89,8 @@ const FeaturedEvents = () => {
         ))}
       </div>
       <div className="text-center mt-6">
-        <button className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400">
-          See More
+        <button className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400 hover:text-white hover:font-medium">
+        See More
         </button>
       </div>
     </div>
