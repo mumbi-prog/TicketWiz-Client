@@ -15,7 +15,16 @@ function formatDate(dateString) {
 }
 
 
-function EventDetails() {
+function EventDetails({ eventId }) {
+  const [event, setEvent] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/events/${eventId}`)
+      .then((response) => response.json())
+      .then((data) => setEvent(data))
+      .catch((error) => console.error('Cannot fetch details:', error));
+  }, [eventId]);
+
   return (
     <div>EventDetails</div>
   )
