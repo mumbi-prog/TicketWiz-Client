@@ -92,7 +92,6 @@ const FeaturedEvents = () => {
         <Link to="/events" className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400 hover:text-white hover:font-medium">
           See More
         </Link>
-       
       </div>
     </div>
   );
