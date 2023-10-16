@@ -12,6 +12,23 @@ const Dashboard = () => {
     .then((response) => response.json())
    
   }, []);
+
+
+  return (
+    <div>
+    <h2>Organizer Dashboard</h2>
+    <div>
+      <div>
+        <p>Total Events: {totalEvents}</p>
+      </div>
+      <div>
+        <p>Total Tickets Sold: {totalTicketsSold}</p>
+      </div>
+      <div>
+        <p>Total Revenue: ${totalRevenue}</p>
+      </div>
+    </div>
+  )
 }
 
 export default Dashboard
