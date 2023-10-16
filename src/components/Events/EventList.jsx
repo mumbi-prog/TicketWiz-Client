@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
-import Navbar from '../LandingPage/Navbar';
+// import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -51,7 +51,7 @@ const EventList = () => {
 
   return (
     <section className="event mb-[30px]">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="event-container font-sans flex flex-col items-center ">
         <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">
           All events
