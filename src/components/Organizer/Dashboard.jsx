@@ -25,8 +25,10 @@ const Dashboard = () => {
       setTotalEvents(data.totalEvents);
       setTotalTicketsSold(data.totalTicketsSold);
       setTotalRevenue(data.totalRevenue);
-    }
-   
+    })
+    .catch((error) => {
+      console.error('Error fetching organiser metrics', error);
+    });
   }, []);
 
 
