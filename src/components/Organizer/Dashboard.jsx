@@ -16,7 +16,16 @@ const Dashboard = () => {
     })
     .catch((error) => {
       console.error('Error fetching organizer events', error)
-    })
+    });
+
+    //fetch for organiser metrics
+    fetch('http://localhost:4000/api/metrics')
+    .then((response) => response.json())
+    .then((data) => {
+      setTotalEvents(data.totalEvents);
+      setTotalTicketsSold(data.totalTicketsSold);
+      setTotalRevenue(data.totalRevenue);
+    }
    
   }, []);
 
