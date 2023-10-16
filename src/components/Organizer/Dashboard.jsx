@@ -8,8 +8,15 @@ const Dashboard = () => {
 
   // Fetch data from API
   useEffect(() => {
-    fetch('http://localhost:8001/api/events')
+    //Fetch organizer's events
+    fetch('http://localhost:4000/api/events')
     .then((response) => response.json())
+    .then((data) = {
+      setOrganizerEvents(data);
+    })
+    .catch((error) => {
+      console.error('Error fetching organizer events', error)
+    })
    
   }, []);
 
