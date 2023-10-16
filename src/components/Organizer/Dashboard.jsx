@@ -10,8 +10,8 @@ const Dashboard = () => {
   useEffect(() => {
     fetch('http://localhost:8001/api/events')
     .then((response) => response.json())
-    // console.log("Response", response);
-  })
+   
+  }, []);
 }
 
 export default Dashboard
