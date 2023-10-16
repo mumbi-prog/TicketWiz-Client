@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2>Organizer Dashboard</h2>
+      <h2>Dashboard</h2>
       <div>
         <div>
           <p>Total Events: {totalEvents}</p>
