@@ -11,7 +11,7 @@ const Dashboard = () => {
     //Fetch organizer's events
     fetch('http://localhost:4000/api/events')
     .then((response) => response.json())
-    .then((data) = {
+    .then((data) => {
       setOrganizerEvents(data);
     })
     .catch((error) => {
