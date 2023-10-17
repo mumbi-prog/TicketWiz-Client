@@ -55,10 +55,19 @@ const Dashboard = () => {
         method: 'DELETE',
       })
       .then((response) => {
-        if 
+        if (response.status === 204) {
+          // display success message
+          console.log('Event deleted successfully');
+        } else {
+          // handle errors
+          console.error('error deleting event');
+        }
       })
+      .catch((error) => {
+        console.error('Error deleting event', error);
+      });
     }
-  }
+  };
 
 
   return (
