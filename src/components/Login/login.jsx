@@ -1,22 +1,22 @@
 import React from "react";
 import logo from './../../images/logo.png';
 import { Link } from "react-router-dom";
+import PasswordInput from "../passwordInput";
 
 const LoginPage = () => {
   return (
     <div className="flex h-screen">
-      {/* Left side with company name and logo */}
-      {/* <div className="flex flex-col justify-center items-center bg-blue-500 text-white w-[10%]"></div> */}
-
-      {/* Right side with login form */}
+      
       <div className="flex justify-center items-center w-[100%] bg-gradient-to-r from-gradient-color1 to-gradient-color2 p-[5px] pr-[30px ">
         <div className="w-80 h-[80%] mr-20 p-8 rounded shadow">
-          <h1 className="text-3xl font-bold mb-14 mt-[50%] text-center text-white">
-            TicketWiz
+          <h1 className="text-3xl font-bold mb-14 mt-[75%] text-center text-white">
+          <Link to="/"> 
+              TicketWiz
+            </Link>
           </h1>
           <img
            src={logo} alt="Logo" 
-            className="w-24 h-24 rounded-full ml-[30%]"
+            className="w-48 h-48 rounded-full ml-[15%]"
           />
         </div>
         <div className="w-96 p-8 rounded shadow ml-20 mt-10">
@@ -29,11 +29,11 @@ const LoginPage = () => {
           <h2 className="text-1xl font-bold mb-4 text-center text-black">
             Don't have an account?{" "}
             <Link to="/signup">
-              <span className="text-purple-500 underline">Signup</span>
+              <span className=" font-bold mb-4 text-black underline">Signup</span>
             </Link>{" "}
             instead.
           </h2>{" "}
-          {/* Add text-white for the title */}
+          
           <form>
             <div className="mb-4">
               <label
@@ -52,20 +52,7 @@ const LoginPage = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                PASSWORD
-              </label>
-              <input
-                placeholder="Password"
-                type="password"
-                id="password"
-                name="password"
-                className="mt-1 p-2 w-full border rounded-md bg-white"
-                required
-              />
+            <PasswordInput name="password" title="PASSWORD" placeholder="Password"/>
             </div>
             <div className="text-center">
               <button
