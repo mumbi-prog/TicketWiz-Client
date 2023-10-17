@@ -64,6 +64,7 @@ const Dashboard = () => {
             <h4>{event.title}</h4>
             <p>Date: {event.date}</p>
             <button onClick={() => handleUpdateEvent(event.id)}>Edit</button>
+            <button onClick={() => handleDeleteEvent(event.id)}>Delete</button>
             <button>Edit</button>
             <button>Delete</button>
           </div>
