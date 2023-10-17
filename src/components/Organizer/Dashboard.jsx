@@ -63,7 +63,7 @@ const Dashboard = () => {
           <div className="event-card" key={event.id}>
             <h4>{event.title}</h4>
             <p>Date: {event.date}</p>
-            {/* Buttons for update and delete actions */}
+            <button onClick={() => handleUpdateEvent(event.id)}>Edit</button>
             <button>Edit</button>
             <button>Delete</button>
           </div>
