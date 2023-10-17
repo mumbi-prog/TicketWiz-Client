@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
-import EventDetails from './EventDetails';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
