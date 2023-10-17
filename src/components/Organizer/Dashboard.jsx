@@ -49,8 +49,15 @@ const Dashboard = () => {
   };
 
   const handleDeleteEvent = (eventId) => {
-    // to do
-    console.log('Delete event with ID ${eventId}')
+    
+    if (window.confirm('Are you sure you want to delete this event?')) {
+      fetch (`http://localhost:8000/api/event/${eventId}`, {
+        method: 'DELETE',
+      })
+      .then((response) => {
+        if 
+      })
+    }
   }
 
 
