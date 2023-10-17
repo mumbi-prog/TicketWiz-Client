@@ -40,8 +40,13 @@ const Dashboard = () => {
       body: JSON.stringify(updatedEventDetails),
     })
     .then((response) => response.json())
-    
-  }
+    .then((data) => {
+      console.log('Event updated successfully');
+    })
+    .catch((error) => {
+      console.error('Error updating event', error);
+    });
+  };
 
   const handleDeleteEvent = (eventId) => {
     // to do
