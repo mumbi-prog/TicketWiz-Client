@@ -18,10 +18,10 @@ function formatDate(dateString) {
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
-  const [selectedEvent, setSelectedEvent] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+  const navigate = useNavigate(); 
 
 
   useEffect(() => {
