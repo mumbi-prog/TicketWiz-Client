@@ -32,7 +32,7 @@ const EventList = () => {
   }, []);
 
   const handleBookTicketClick = (event) => {
-    setSelectedEvent(event);
+    navigate(`/events/${event.id}`);
   };
 
   const filteredEvents = events.filter((event) =>
@@ -100,8 +100,6 @@ const EventList = () => {
             </div>
           ))}
         </div>
-         {selectedEvent && (
-           <EventDetails eventId={selectedEvent.id} /> )}
        
         <div className="pagination flex justify-center items-center my-[5px]">
           <button
