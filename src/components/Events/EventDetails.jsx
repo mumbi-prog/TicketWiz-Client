@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { FaLocationDot, FaRegClock } from 'react-icons/fa6';
 import './Events.css';
+import { useParams } from 'react-router-dom';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -26,7 +27,8 @@ function formatTime(timeString) {
 }
 
 
-function EventDetails( {eventId} ) {
+function EventDetails() {
+  const { eventId } = useParams();
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
