@@ -110,4 +110,8 @@
     width: 500px;
 
 }
+.date-and-title{
+    display: flex;
+    align-items: center;
+}
 /* event details styling ends */

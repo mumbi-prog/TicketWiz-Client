@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
+import EventDetails from './EventDetails';
+// import { Link } from "react-router-dom";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -16,6 +18,7 @@ function formatDate(dateString) {
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -26,6 +29,10 @@ const EventList = () => {
       .then((data) => setEvents(data))
       .catch((error) => console.error('Error fetching events:', error));
   }, []);
+
+  const handleBookTicketClick = (event) => {
+    setSelectedEvent(event);
+  };
 
   const filteredEvents = events.filter((event) =>
     event.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -84,12 +91,18 @@ const EventList = () => {
                   </div>
                 </div>
               </div>
-              <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]">
-                Book Ticket
-              </button>
+              {/* <Link to={`/events/${event.id}`}> */}
+                <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]" onClick={() => handleBookTicketClick(event)}>
+                  Book Ticket
+                </button >
+              {/* </Link> */}
+
             </div>
           ))}
         </div>
+        {selectedEvent && (
+          <EventDetails eventId={selectedEvent.id} /> )}
+       
         <div className="pagination flex justify-center items-center my-[5px]">
           <button
             onClick={goToPreviousPage}
