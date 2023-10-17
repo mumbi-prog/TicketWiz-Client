@@ -26,7 +26,7 @@ function formatTime(timeString) {
 }
 
 
-function EventDetails({ eventId }) {
+function EventDetails( {eventId} ) {
   const [event, setEvent] = useState(null);
 
   useEffect(() => {

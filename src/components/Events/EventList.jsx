@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 import EventDetails from './EventDetails';
-// import { Link } from "react-router-dom";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -22,6 +22,7 @@ const EventList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -71,8 +72,8 @@ const EventList = () => {
           />
         </div>
 
-        <div className="event-list grid grid-cols-4 gap-[30px] mx-[20px] my-[60px]">
-          {paginatedEvents.map((event) => (
+         <div className="event-list grid grid-cols-4 gap-[30px] mx-[20px] my-[60px]">
+           {paginatedEvents.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md">
               <div className="event-img">
                 <img src={event.image_url} alt={event.title} className="h-[150px] w-[260px] object-cover rounded-t-lg" />
@@ -91,17 +92,16 @@ const EventList = () => {
                   </div>
                 </div>
               </div>
-              {/* <Link to={`/events/${event.id}`}> */}
-                <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]" onClick={() => handleBookTicketClick(event)}>
-                  Book Ticket
-                </button >
-              {/* </Link> */}
-
+              
+              <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]" onClick={() => handleBookTicketClick(event)}>
+                Book Ticket
+              </button >
+             
             </div>
           ))}
         </div>
-        {selectedEvent && (
-          <EventDetails eventId={selectedEvent.id} /> )}
+         {selectedEvent && (
+           <EventDetails eventId={selectedEvent.id} /> )}
        
         <div className="pagination flex justify-center items-center my-[5px]">
           <button
@@ -137,3 +137,6 @@ const EventList = () => {
 };
 
 export default EventList;
+
+       
+
