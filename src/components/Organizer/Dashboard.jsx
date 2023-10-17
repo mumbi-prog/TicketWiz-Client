@@ -32,8 +32,15 @@ const Dashboard = () => {
   }, []);
 
   const handleUpdateEvent = (eventId) => {
-    // to do
-    console.log('Update event with ID ${eventID}')
+    fetch ('http://localhost:8000/api/event/${eventId}', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedEventDetails),
+    })
+    .then((response) => response.json())
+    
   }
 
   const handleDeleteEvent = (eventId) => {
