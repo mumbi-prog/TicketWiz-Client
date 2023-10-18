@@ -43,13 +43,13 @@ function EventDetails() {
   }
 
   return (
-    <div className="event-details-container my-[40px] mx-[20px] tracking-wider tracking-wider">
-      <div className="event-details flex flex-row gap-[-10px] font-sans">
+    <div className="event-details-container my-[40px] mx-[150px] max-w-screen-lg tracking-wider tracking-wider">
+      <div className="event-details max-w-screen-lg flex flex-row gap-[-10px] font-sans">
         <div className="event-image">
-          <img src={event.image_url} alt={event.title} className='w-[470px] h-[470px] ml-[-100px]'/>
+          <img src={event.image_url} alt={event.title} className='w-[470px] h-[470px] ml-[-50px]'/>
         </div>
         <div className="event-info ">
-          <div className="date-and-title mb-[15px] flex">
+          <div className="date-and-title mb-[15px] flex items-center">
             <p>{formatDate(event.date)}</p>
             <h2 className="e-title text-[35px] font-bold mb-3 uppercase">{event.title}</h2>
           </div>
@@ -62,7 +62,7 @@ function EventDetails() {
             <p className='font-medium'>{formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
           </div>
           <p className='event-desc'>{event.description}</p>
-          <div className="event-actions  flex justify-between items-end gap-[60px] mt-[50px]">
+          <div className="event-actions  flex justify-between items-end gap-[60px] mt-[175px]">
             <button className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]">Get Ticket</button>
             <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button>
           </div>
