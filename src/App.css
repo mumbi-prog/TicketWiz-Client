@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+/* Add these styles to your CSS file */
+.nav-link {
+  text-decoration: none; /* Remove the default underline */
+  color: rgb(92, 86, 86); /* Set the text color for unvisited links */
+  transition: color 0.3s; /* Add a smooth color transition effect */
+}
+
+.nav-link:hover {
+  color: blue; /* Set the text color on hover */
+}
+
+/* Style visited links to match unvisited links */
+.nav-link:visited {
+  color: rgb(133, 129, 129); /* Set the text color for visited links */
+}
+
+.nav-link:visited:hover {
+  color: blue; /* Set the text color for visited links on hover */
+}
+/* Style the active link */
+.nav-link.active {
+  color: blue; /* Set the text color for the active link */
+}

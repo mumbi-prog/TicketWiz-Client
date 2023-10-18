@@ -21,6 +21,7 @@ module.exports = {
         'head-color': '#242565',
         'gradient-color1': '#7b46ed',
         'gradient-color2' : '#22ccc2',
+        'account-blue' : '#6176BA',
       },
   },
   plugins: [],
