@@ -20,9 +20,13 @@ module.exports = {
         'button-color': '#f70c9d',
         'head-color': '#242565',
         'gradient-color1': '#7b46ed',
-        'gradient-color2' : '#22ccc2',
+        'gradient-color2': '#22ccc2',
       },
+      boxShadow: {
+        'blue': '0 0 10px rgba(142, 219, 245, 0.966)',
+      },
+    },
   },
   plugins: [],
-}
-}
+};
+

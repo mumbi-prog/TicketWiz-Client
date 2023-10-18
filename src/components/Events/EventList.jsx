@@ -71,11 +71,11 @@ const EventList = () => {
           />
         </div>
 
-         <div className="event-list grid grid-cols-4 gap-[30px] mx-[20px] my-[60px]">
+         <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-[50px]">
            {paginatedEvents.map((event) => (
-            <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md">
+            <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
               <div className="event-img">
-                <img src={event.image_url} alt={event.title} className="h-[150px] w-[260px] object-cover rounded-t-lg" />
+                <img src={event.image_url} alt={event.title} className="h-[150px] w-[280px] object-cover rounded-t-lg" />
               </div>
               <div className="event-selected-details flex p-5">
                 <div className="event-date">
@@ -92,7 +92,7 @@ const EventList = () => {
                 </div>
               </div>
               
-              <button className="bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px]" onClick={() => handleBookTicketClick(event)}>
+              <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
                 Book Ticket
               </button >
              
