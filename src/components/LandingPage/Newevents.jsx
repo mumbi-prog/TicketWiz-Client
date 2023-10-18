@@ -6,7 +6,7 @@ function Newevents() {
   return (
     <section className="new-event bg-gray-300 mt-[20px] flex flex-row justify-between gap-40 font-sans relative h-[340px]">
       <div className="new-event-container w-full">
-        <img src={ticketimg} alt="" className="event-image w-[420px] h-auto absolute top-[-50px] left-[80px]" />
+        <img src={ticketimg} alt="" className="event-image w-[470px] h-auto absolute top-[-35px] left-[80px]" />
       </div>
       <div className="new-event-content pt-3 ml-[50px]">
         <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px] mb-[15px]">Create your own events</h2>

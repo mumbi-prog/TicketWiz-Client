@@ -63,7 +63,7 @@ const FeaturedEvents = () => {
          </div>
         ))}
       </div>
-      <div className="text-center mt-6">
+      <div className="text-center mt-[35px]">
         <Link
           to="/events"
           className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400 hover:text-white hover:font-medium"
