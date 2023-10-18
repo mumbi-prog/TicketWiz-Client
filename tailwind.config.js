@@ -23,7 +23,11 @@ module.exports = {
         'gradient-color2' : '#22ccc2',
         'account-blue' : '#6176BA',
       },
+      boxShadow: {
+        'blue': '0 0 10px rgba(142, 219, 245, 0.966)',
+      },
+    },
   },
   plugins: [],
-}
-}
+};
+
