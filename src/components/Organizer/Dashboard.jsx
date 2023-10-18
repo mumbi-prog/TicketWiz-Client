@@ -32,7 +32,19 @@ const Dashboard = () => {
   }, []);
 
   const handleUpdateEvent = (eventId) => {
-    fetch ('http://localhost:8000/api/event/${eventId}', {
+    const updatedEventDetails = {
+      title: "New Title",
+      description: "New Description",
+      category: 'New category', 
+      image_url: 'New img poster',
+      date: 'New date',
+      start_time: 'New start time',
+      end_time: 'New end time',
+      venue_name: 'New venue',
+      event_location: 'New event location',
+      available_tickets_count: 0,
+    };
+    fetch (`http://localhost:8000/api/event/${eventId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
