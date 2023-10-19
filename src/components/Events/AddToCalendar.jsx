@@ -33,7 +33,7 @@ function AddToCalendar({ event }) {
           };
 
           const request = gapi.client.calendar.events.insert({
-            calendarId: 'primary',
+            calendarId: 'primary', // Use 'primary' to refer to the user's primary calendar
             resource: eventDetails,
           });
 
@@ -51,4 +51,3 @@ function AddToCalendar({ event }) {
 }
 
 export default AddToCalendar;
-

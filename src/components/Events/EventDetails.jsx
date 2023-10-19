@@ -66,7 +66,7 @@ function EventDetails() {
           <div className="event-actions  flex justify-between items-end gap-[60px] mt-[175px]">
             <button className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]">Get Ticket</button>
             {/* <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button> */}
-          <AddToCalendar event={event} />
+              <AddToCalendar event={event} />
           </div>
 
         </div>
