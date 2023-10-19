@@ -47,3 +47,14 @@ function App() {
 }
 
 export default App;
+
+// import React from 'react'
+// import AddToCalendar from './components/Events/AddToCalendar'
+
+// function App() {
+//   return (
+//     <div><AddToCalendar/></div>
+//   )
+// }
+
+// export default App
