@@ -29,4 +29,4 @@ const CustomerEventHistory = () => {
     );
 };
     
-    export default CustomerEventHistory;
+export default CustomerEventHistory;
