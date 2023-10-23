@@ -55,6 +55,9 @@ function Payment({ event }) {
             console.error('Payment failed:', error);
           });
       })
+      .catch((error) => {
+        console.error('Ticket could ot be created', error);
+      });
   }; 
 
   return (
