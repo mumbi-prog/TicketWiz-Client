@@ -4,6 +4,7 @@ import './Events.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
+import Payment from './Payment';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
