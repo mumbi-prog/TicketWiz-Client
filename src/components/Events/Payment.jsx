@@ -71,10 +71,11 @@ function Payment({ event }) {
 
   return (
     <div>
-      <h1>Payment Page</h1>
+      <h1>Payment for <span>{event.title} </span>ticket</h1>
       <h2>Event Details</h2>
       <p>Title: {event.title}</p>
       <p>Time: {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
+      <p>Venue: {event.venue_name}, {event.event_location}</p>
       <p>Price: Ksh. {event.price}</p>
 
       <h2>Choose Your Ticket</h2>
