@@ -135,7 +135,7 @@ const SignUp = () => {
       if (!isPasswordValid) {
         setErrMsg("Password Mismatch!");
       } else {
-        const response = await fetch("your_login_api_endpoint_here", {
+        const response = await fetch("http://localhost:3000", {
           method: "POST",
           body: JSON.stringify({
             email,
@@ -169,7 +169,8 @@ const SignUp = () => {
 
   return (
     <>
-      <p>{errMsg}</p>
+     <p>{errMsg}</p>
+
       <div className="flex h-screen">
         
         <div className="flex justify-center items-center w-[100%] bg-gradient-to-r from-gradient-color1 to-gradient-color2 p-[5px] pr-[30px]">
