@@ -24,7 +24,7 @@ function Payment({ event }) {
       quantity: quantity,
     };
 
-    fetch('/tickets', {
+    fetch('http://localhost:3000/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,19 @@ function Payment({ event }) {
           status: 'completed',
         };
 
-        
+        fetch('http://localhost:3000/payments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(paymentData),
+        })
+          .then((response) => response.json())
+          .then((payment) => {
+            console.log('Payment completed:', payment);
+          })
+      })
+  }; 
 
   return (
     <div>Payment</div>
