@@ -24,6 +24,16 @@ function Payment({ event }) {
       quantity: quantity,
     };
 
+    fetch('/tickets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(ticketData),
+    })
+      .then((response) => response.json())
+      .then((ticket) => {
+
   return (
     <div>Payment</div>
   )
