@@ -1,11 +1,10 @@
-           
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
 
-  const LoginPage = () => {
+  const CustomerLoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +15,7 @@ import logo from './../../images/logo.png';
   const handleLogin = async () => {
     console.log(email, password, "here are the information");
     try {
-      const response = await fetch("http://localhost:3000/loginOrg", {
+      const response = await fetch("http://localhost:3000/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {
@@ -31,6 +30,8 @@ import logo from './../../images/logo.png';
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
 
+
+        
         navigate("/dashboard");
       } else {
        
@@ -127,5 +128,6 @@ import logo from './../../images/logo.png';
   );
 };
 
-export default LoginPage;
+export default CustomerLoginPage;
+
 

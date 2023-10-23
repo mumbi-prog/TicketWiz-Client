@@ -43,7 +43,7 @@ const Navbar = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <div className="text-center mt-5">
             <div className="mb-2">
-              <RouterLink to="/login" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/customerlogin" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
                   Login as User
                 </button>
