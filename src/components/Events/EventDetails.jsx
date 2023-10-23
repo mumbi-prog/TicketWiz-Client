@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { FaLocationDot, FaRegClock } from 'react-icons/fa6';
 import './Events.css';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
 import Payment from './Payment';
@@ -33,7 +33,6 @@ function formatTime(timeString) {
 function EventDetails() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3000/events/${eventId}`)
@@ -66,11 +65,10 @@ function EventDetails() {
             <p className='font-medium'>{formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
           </div>
           <p className='event-desc'>{event.description}</p>
-          <div className="event-actions  flex justify-between items-end gap-[10px] mt-[120px]">
+          <div className="event-actions  flex justify-between items-end gap-[10px] mt-[83px]">
          
             <Link to={`/events/${eventId}/checkout`} state={{eventDetails: { title: event.title, date: event.date, price: event.price, }, }}
-              className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]"
-              onClick={() => navigate(`/events/${eventId}/checkout`)}>
+              className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]">
                   Get Ticket
             </Link>
            {/* <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button> */}
