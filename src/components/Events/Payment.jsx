@@ -16,7 +16,14 @@ function Payment({ event }) {
 
     return price * quantity;
   };
-  
+
+  const handlePayment = () => {
+    const ticketData = {
+      event_id: event.id,
+      ticket_type: ticketType,
+      quantity: quantity,
+    };
+
   return (
     <div>Payment</div>
   )
