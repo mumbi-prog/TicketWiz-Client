@@ -4,16 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
-const LoginPage = () => {
+
+  const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrMsg] = useState("");
-
+  
   const handleLogin = async () => {
     console.log(email, password, "here are the information");
     try {
-      const response = await fetch("your_login_api_endpoint_here", {
+      const response = await fetch("http://localhost:3000/loginOrg", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {

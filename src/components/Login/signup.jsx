@@ -129,13 +129,14 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
+
   const handleAddAccount = async () => {
     try {
       const isPasswordValid = password === confirmPassword;
       if (!isPasswordValid) {
         setErrMsg("Password Mismatch!");
       } else {
-        const response = await fetch("http://localhost:3000", {
+        const response = await fetch("http://localhost:3000/signupOrg", {
           method: "POST",
           body: JSON.stringify({
             email,
