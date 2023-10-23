@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { FaLocationDot, FaRegClock } from 'react-icons/fa6';
 import './Events.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import AddToCalendar from './AddToCalendar';
+import { Link } from 'react-scroll';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -31,6 +32,7 @@ function formatTime(timeString) {
 function EventDetails() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:3000/events/${eventId}`)
@@ -64,7 +66,24 @@ function EventDetails() {
           </div>
           <p className='event-desc'>{event.description}</p>
           <div className="event-actions  flex justify-between items-end gap-[10px] mt-[120px]">
-            <button className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]">Get Ticket</button>
+         
+              <Link
+                  to={`/events/${eventId}/checkout`}
+                  state={{
+                    eventDetails: {
+                      title: event.title,
+                      date: event.date,
+                      price: event.price,
+                    },
+                  }}
+                  className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]"
+                  onClick={() => navigate(`/events/${eventId}/checkout`)}
+                >
+                  Get Ticket
+                </Link>
+
+
+            
             {/* <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button> */}
               <AddToCalendar event={event} />
           </div>
@@ -77,3 +96,4 @@ function EventDetails() {
 }
 
 export default EventDetails
+
