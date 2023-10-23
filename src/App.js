@@ -48,3 +48,15 @@
 
 // export default App;
 
+import React from 'react'
+import MainOrgApp from './components/Organizer/MainOrgApp'
+
+function App() {
+  return (
+    <div>
+      <MainOrgApp />
+    </div>
+  )
+}
+
+export default App
