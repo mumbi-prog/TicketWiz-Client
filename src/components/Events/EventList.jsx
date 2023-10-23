@@ -77,7 +77,7 @@ const EventList = () => {
               <div className="event-img">
                 <img src={event.image_url} alt={event.title} className="h-[150px] w-[280px] object-cover rounded-t-lg" />
               </div>
-              <div className="event-selected-details flex p-5">
+              <div className="event-selected-details flex p-5 ">
                 <div className="event-date">
                   <p>{formatDate(event.date)}</p>
                 </div>
