@@ -34,6 +34,14 @@ function Payment({ event }) {
       .then((response) => response.json())
       .then((ticket) => {
 
+        const paymentData = {
+          ticket_id: ticket.id,
+          amount: calculatePrice(),
+          status: 'completed',
+        };
+
+        
+
   return (
     <div>Payment</div>
   )
