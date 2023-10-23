@@ -51,6 +51,9 @@ function Payment({ event }) {
           .then((payment) => {
             console.log('Payment completed:', payment);
           })
+          .catch((error) => {
+            console.error('Payment failed:', error);
+          });
       })
   }; 
 
