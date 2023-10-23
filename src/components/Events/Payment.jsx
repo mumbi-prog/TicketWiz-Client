@@ -1,5 +1,14 @@
 import React, {useState} from 'react'
 
+function formatTime(timeString) {
+  const time = new Date(timeString);
+  const hours = time.getHours() % 12 || 12;
+  const minutes = time.getMinutes();
+  const ampm = time.getHours() >= 12 ? 'PM' : 'AM';
+
+  return `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+}
+
 function Payment({ event }) {
   const [ticketType, setTicketType] = useState('MVP');
   const [quantity, setQuantity] = useState(1);
@@ -65,7 +74,7 @@ function Payment({ event }) {
       <h1>Payment Page</h1>
       <h2>Event Details</h2>
       <p>Title: {event.title}</p>
-      <p>Time: {event.start_time} to {event.end_time}</p>
+      <p>Time: {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
       <p>Price: Ksh. {event.price}</p>
 
       <h2>Choose Your Ticket</h2>
