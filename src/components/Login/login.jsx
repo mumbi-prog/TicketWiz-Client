@@ -70,8 +70,8 @@ import logo from './../../images/logo.png';
           </h2>
           <h2 className="text-1xl font-bold mb-4 text-center text-black">
             Don't have an account?{" "}
-            <Link to="/signup">
-              <span className="font-bold mb-4 text-black underline">Signup</span>
+            <Link to="/organizersignup">
+              <span className="font-bold mb-4 text-black underline">OrganizerSignup</span>
             </Link>{" "}
             instead.
           </h2>

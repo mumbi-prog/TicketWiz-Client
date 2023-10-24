@@ -59,7 +59,15 @@ const Navbar = () => {
             <div>
               <RouterLink to="/signup" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
-                  Sign Up
+                  Sign Up as User
+                </button>
+              </RouterLink>
+            </div>
+            
+            <div>
+              <RouterLink to="/signup" className="text-blue-500 hover:text-blue-700">
+                <button className="focus:outline-none text-left w-full">
+                  Sign Up as Organizer
                 </button>
               </RouterLink>
             </div>
