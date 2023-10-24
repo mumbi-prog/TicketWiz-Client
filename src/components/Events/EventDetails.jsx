@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
 import Payment from './Payment';
+import './Payment.css'
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -33,6 +34,7 @@ function formatTime(timeString) {
 function EventDetails() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/events/${eventId}`)
@@ -44,6 +46,15 @@ function EventDetails() {
   if (!event) {
     return <div>Loading event details...</div>;
   }
+
+ 
+  const handleGetTicketClick = () => {
+    setShowPaymentModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowPaymentModal(false);
+  };
 
   return (
     <div className="event-details-container my-[40px] mx-[150px] max-w-screen-lg ">
@@ -67,14 +78,24 @@ function EventDetails() {
           <p className='event-desc'>{event.description}</p>
           <div className="event-actions  flex justify-between items-end gap-[10px] mt-[83px]">
          
-            <Link to={`/events/${eventId}/checkout`} state={{eventDetails: { title: event.title, date: event.date, price: event.price, }, }}
-              className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]">
-                  Get Ticket
-            </Link>
+           <Link
+          onClick={handleGetTicketClick}
+          className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] pointer"
+        >
+          Get Ticket
+        </Link>
            {/* <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button> */}
               <AddToCalendar event={event} />
           </div>
-          {event && <Payment event={event} />}
+       
+         {showPaymentModal && (
+            <div className="modal-overlay">
+              <div className="payment-modal">
+                <button onClick={handleModalClose} className='close-button pointer'>Close</button>
+                <Payment event={event} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
      

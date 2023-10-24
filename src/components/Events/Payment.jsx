@@ -70,9 +70,8 @@ function Payment({ event }) {
   }; 
 
   return (
-    <div>
-      <h1>Payment for <span>{event.title} </span>ticket</h1>
-      <h2>Event Details</h2>
+    <div className='payment-container pl-[20px]'>
+      <h6>Checkout</h6>
       <p>Title: {event.title}</p>
       <p>Time: {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
       <p>Venue: {event.venue_name}, {event.event_location}</p>
@@ -98,7 +97,7 @@ function Payment({ event }) {
       <p>Ksh. {calculatePrice()}</p>
       <button
         onClick={handlePayment}
-        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]"
+        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] mt-[450px]"
       >
         Confirm Payment
       </button>
