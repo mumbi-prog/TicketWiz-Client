@@ -9,6 +9,20 @@ function formatTime(timeString) {
   return `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
 }
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.toLocaleDateString(undefined, { month: 'short' });
+  const formattedDay = addOrdinalSuffix(day);
+
+  return (
+    <div className="event-date bg-lighter-blue text-text-color font-sans font-bold flex flex-col items-center justify-left mt-[2px] border rounded-md border-black px-[18px] py-[8px] mr-[15px]">
+      <p className="day text-text-color text-3xl mt-[-2px] font-medium">{formattedDay}</p>
+      <p className="month text-text-color text-main-blue font-medium text-sm">{month}</p>
+    </div>
+  );
+}
+
 function Payment({ event }) {
   const [ticketType, setTicketType] = useState('MVP');
   const [quantity, setQuantity] = useState(1);
