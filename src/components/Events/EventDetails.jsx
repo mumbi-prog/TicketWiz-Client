@@ -6,6 +6,7 @@ import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
 import Payment from './Payment';
 import './Payment.css';
+import {MdClose} from 'react-icons/md'
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -91,7 +92,7 @@ function EventDetails() {
          {showPaymentModal && (
             <div className="modal-overlay">
               <div className="payment-modal">
-                <button onClick={handleModalClose} className='close-button pointer'>Close</button>
+                <button onClick={handleModalClose} className='close-button pointer'><MdClose /></button>
                 <Payment event={event} />
               </div>
             </div>

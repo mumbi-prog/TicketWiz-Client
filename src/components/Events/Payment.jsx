@@ -143,7 +143,7 @@ function Payment({ event }) {
 
       <button
         onClick={handlePayment}
-        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]"
+        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] mt-[20px]"
       >
         Confirm Payment
       </button>
