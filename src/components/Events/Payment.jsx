@@ -103,10 +103,12 @@ function Payment({ event }) {
     <div className='payment-container pl-[20px]'>
       <h6>Checkout</h6>
       <div className='details-container'>
-        <p className="date-time flex mt-0 mb-0">
-          {formatDate(event.date)} | from {formatTime(event.start_time)} to {formatTime(event.end_time)}
-        </p>
-        <p className='font-medium mt-0 mb-0'>{event.title}</p>
+        <div className="date-time flex mt-0 mb-0">
+          <p>{formatDate(event.date)}</p>
+          <p> | from   </p>
+          <p> {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
+        </div>
+        <p className='font-medium mt-[30px] mb-0'>{event.title}</p>
         <p className='text-lighter-blue mt-0 mb-0'>at the {event.venue_name}, {event.event_location}</p>
       </div>
       
