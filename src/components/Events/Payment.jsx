@@ -100,28 +100,28 @@ function Payment({ event }) {
   }; 
 
   return (
-    <div className='payment-container pl-[20px]'>
+    <div className='payment-container pl-[20px] font-sans'>
       <h6>Checkout</h6>
-      <div className='details-container'>
+      <div className='details-container mt-[15px] mb-[15px]'>
         <div className="date-time flex mt-0 mb-0">
           <p>{formatDate(event.date)}</p>
           <p> | from   </p>
-          <p> {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
+          <p className='ml-[5px]'> {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
         </div>
-        <p className='font-medium mt-[30px] mb-0'>{event.title}</p>
+        <p className='font-bold mb-0'>{event.title}</p>
         <p className='text-lighter-blue mt-0 mb-0'>at the {event.venue_name}, {event.event_location}</p>
       </div>
       
       <div className="ticket-details flex flex-col align-items-center gap-[20px]">
-          <div className="labels flex gap-[100px] uppercase mt-[15px]">
+          <div className="labels flex rounded-md gap-[120px] uppercase mt-[15px] bg-text-color mb-[15px] mt-[10px] px-[10px] py-[10px] w-[700px]">
             <label htmlFor="ticketType">Ticket Type</label>
             <label htmlFor="quantity">Quantity</label>
             <label htmlFor="price">Price</label>
             <label htmlFor="totalPrice">Total Price</label>
           </div>
 
-          <div className="details flex gap-[80px] items-center">
-            <div className="ticket-type">
+          <div className="details rounded-md flex gap-[80px] items-center bg-text-color px-[10px] py-[10px] w-[700px]">
+            <div className="ticket-type w-[150px] p-2 my-1 border border-gray-300 rounded-md">
               <select id="ticketType" value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
                 <option value="MVP">MVP</option>
                 <option value="Early Booking">Early Booking</option>
@@ -129,25 +129,30 @@ function Payment({ event }) {
               </select>
             </div>
 
-            <div className="quantity ml-[-31px]">
+            <div className="quantity w-[100px] ml-[-21px] p-2 my-1 border border-gray-300 rounded-md">
               <input type="number" id="quantity" value={quantity} min={0} max={10} onChange={(e) => setQuantity(e.target.value)}  />
             </div>
 
-            <div className="price ml-[10px]">
+            <div className="price ml-[13px]">
               <p>{event.price}</p>
             </div>
 
-            <div className="total-price ml-[25px]">
-              <p>Ksh. {calculatePrice()}</p>
+            <div className="total-price ml-[57px]">
+              <p>{calculatePrice()}</p>
             </div>
+          </div>
+
+          <div className="total-price font-bold uppercase flex gap-[500px] ">
+              <p className='font-bold'>Total</p>
+              <p className='font-bold'>Kes {calculatePrice()}</p>
           </div>
       </div>
 
       <button
         onClick={handlePayment}
-        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] mt-[20px]"
+        className="btn btn-primary rounded-full text-sm italic bg-checkout-btn text-text-color font-sans px-[25px] py-[10px] mt-[20px]"
       >
-        Confirm Payment
+        Check out
       </button>
     </div>
   )

@@ -1,4 +1,4 @@
-.modal-overlay {
+/* .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -38,9 +38,9 @@
     border: 1px solid blue;
     border-radius: 50%;
     color: blue;
-}
+} */
   
-.payment-modal select,
+/* .payment-modal select,
 .payment-modal input {
     width: 100%;
     padding: 10px;
@@ -51,5 +51,5 @@
   
 .payment-modal p {
     margin: 10px 0;
-}
+} */
   

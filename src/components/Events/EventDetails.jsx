@@ -81,7 +81,7 @@ function EventDetails() {
          
            <Link
           onClick={handleGetTicketClick}
-          className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] pointer"
+          className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] cursor-pointer"
         >
           Get Ticket
         </Link>
@@ -89,14 +89,17 @@ function EventDetails() {
               <AddToCalendar event={event} />
           </div>
        
-         {showPaymentModal && (
-            <div className="modal-overlay">
-              <div className="payment-modal">
-                <button onClick={handleModalClose} className='close-button pointer'><MdClose /></button>
+          {showPaymentModal && (
+            <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50">
+              <div className="payment-modal bg-payment-modal-color border border-gray-300 p-5 w-[800px] shadow-md text-left relative">
+                <button onClick={handleModalClose} className='close-button absolute top-2 right-2 cursor-pointer hover:border-[1px] hover:border-blue-500 hover:bg-blue-100 hover:rounded-full p-[5px]'>
+                  <MdClose />
+                </button>
                 <Payment event={event} />
               </div>
             </div>
           )}
+
         </div>
       </div>
      
