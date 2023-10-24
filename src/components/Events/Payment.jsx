@@ -13,17 +13,16 @@ function formatDate(dateString) {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.toLocaleDateString(undefined, { month: 'short' });
-  const formattedDay = addOrdinalSuffix(day);
+  const formattedDay = addSuffix(day);
 
   return (
-    <div className="event-date bg-lighter-blue text-text-color font-sans font-bold flex flex-col items-center justify-left mt-[2px] border rounded-md border-black px-[18px] py-[8px] mr-[15px]">
-      <p className="day text-text-color text-3xl mt-[-2px] font-medium">{formattedDay}</p>
-      <p className="month text-text-color text-main-blue font-medium text-sm">{month}</p>
+    <div className="event-date">
+      <p className="day pr-[5px]">{formattedDay} <span>{month} </span></p>
     </div>
   );
 }
 
-function addOrdinalSuffix(day) {
+function addSuffix(day) {
   if (day >= 11 && day <= 13) {
     return day + 'th';
   }
@@ -103,19 +102,23 @@ function Payment({ event }) {
   return (
     <div className='payment-container pl-[20px]'>
       <h6>Checkout</h6>
-      <p>Title: {event.title}</p>
-      <p>Time: {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
-      <p>Venue: {event.venue_name}, {event.event_location}</p>
+      <p className="date-time flex ">
+        {formatDate(event.date)} | from {formatTime(event.start_time)} to {formatTime(event.end_time)}
+      </p>
+      <p className='font-medium'>{event.title}</p>
+      <p className='text-lighter-blue'>at the {event.venue_name}, {event.event_location}</p>
       <p>Price: Ksh. {event.price}</p>
+      {/* <p> <span>{formatDate(event.date)}</span> </p>  */}
+     
 
-      <h2>Choose Your Ticket</h2>
+      <h2>Ticket</h2>
       <select value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
         <option value="MVP">MVP</option>
         <option value="Early Booking">Early Booking</option>
         <option value="Regular">Regular</option>
       </select>
 
-      <h2>Choose Quantity</h2>
+      <h2>Quantity</h2>
       <input
         type="number"
         value={quantity}
