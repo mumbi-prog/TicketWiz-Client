@@ -9,6 +9,7 @@ import Newevents from './components/LandingPage/Newevents';
 import Footer from './components/LandingPage/Footer';
 import EventList from './components/Events/EventList'; 
 import EventDetails from './components/Events/EventDetails';
+import Payment from './components/Events/Payment';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/events" element={<EventList />} /> 
           <Route path="/events/:eventId" element={<EventDetails />} />
+          <Route path="/events/:eventId/checkout" element={<Payment />} />
           <Route
             path="/"
             element={
