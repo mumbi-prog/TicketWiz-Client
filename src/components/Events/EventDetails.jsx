@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
 import Payment from './Payment';
-import './Payment.css'
+import './Payment.css';
 
 function formatDate(dateString) {
   const date = new Date(dateString);

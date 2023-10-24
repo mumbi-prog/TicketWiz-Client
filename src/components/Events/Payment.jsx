@@ -41,7 +41,7 @@ function addSuffix(day) {
 
 function Payment({ event }) {
   const [ticketType, setTicketType] = useState('MVP');
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
 
   const calculatePrice = () => {
     const basePrice = event.price;
@@ -102,36 +102,48 @@ function Payment({ event }) {
   return (
     <div className='payment-container pl-[20px]'>
       <h6>Checkout</h6>
-      <p className="date-time flex ">
-        {formatDate(event.date)} | from {formatTime(event.start_time)} to {formatTime(event.end_time)}
-      </p>
-      <p className='font-medium'>{event.title}</p>
-      <p className='text-lighter-blue'>at the {event.venue_name}, {event.event_location}</p>
-      <p>Price: Ksh. {event.price}</p>
-      {/* <p> <span>{formatDate(event.date)}</span> </p>  */}
-     
+      <div className='details-container'>
+        <p className="date-time flex mt-0 mb-0">
+          {formatDate(event.date)} | from {formatTime(event.start_time)} to {formatTime(event.end_time)}
+        </p>
+        <p className='font-medium mt-0 mb-0'>{event.title}</p>
+        <p className='text-lighter-blue mt-0 mb-0'>at the {event.venue_name}, {event.event_location}</p>
+      </div>
+      
+      <div className="ticket-details flex flex-col align-items-center gap-[20px]">
+          <div className="labels flex gap-[100px] uppercase mt-[15px]">
+            <label htmlFor="ticketType">Ticket Type</label>
+            <label htmlFor="quantity">Quantity</label>
+            <label htmlFor="price">Price</label>
+            <label htmlFor="totalPrice">Total Price</label>
+          </div>
 
-      <h2>Ticket</h2>
-      <select value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
-        <option value="MVP">MVP</option>
-        <option value="Early Booking">Early Booking</option>
-        <option value="Regular">Regular</option>
-      </select>
+          <div className="details flex gap-[80px] items-center">
+            <div className="ticket-type">
+              <select id="ticketType" value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
+                <option value="MVP">MVP</option>
+                <option value="Early Booking">Early Booking</option>
+                <option value="Regular">Regular</option>
+              </select>
+            </div>
 
-      <h2>Quantity</h2>
-      <input
-        type="number"
-        value={quantity}
-        min={1}
-        max={10}
-        onChange={(e) => setQuantity(e.target.value)}
-      />
+            <div className="quantity ml-[-31px]">
+              <input type="number" id="quantity" value={quantity} min={0} max={10} onChange={(e) => setQuantity(e.target.value)}  />
+            </div>
 
-      <h2>Total Price</h2>
-      <p>Ksh. {calculatePrice()}</p>
+            <div className="price ml-[10px]">
+              <p>{event.price}</p>
+            </div>
+
+            <div className="total-price ml-[25px]">
+              <p>Ksh. {calculatePrice()}</p>
+            </div>
+          </div>
+      </div>
+
       <button
         onClick={handlePayment}
-        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] mt-[450px]"
+        className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px]"
       >
         Confirm Payment
       </button>
