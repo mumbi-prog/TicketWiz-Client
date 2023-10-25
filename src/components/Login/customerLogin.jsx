@@ -17,6 +17,7 @@ import logo from './../../images/logo.png';
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
+        mode: 'cors', 
         body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json",
