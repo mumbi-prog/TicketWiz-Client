@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Dashboard from './Dashboard';
 import BookTicket from './BookTicket';
 import TicketWallet from './TicketWallet';
-import EventHistory from './EventHistory';
+import CustomerEventHistory from './CustomerEventHistory';
 import Profile from './Profile';
 import EventDetails from '../Events/EventDetails';
 import Payment from '../Events/Payment';
@@ -22,7 +22,7 @@ function MainClientApp() {
                 <Route path="/events/:eventId" element={<EventDetails />} />
                 <Route path="/events/:eventId/checkout" element={<Payment />} />
                 <Route path='/ticketwallet'element={<TicketWallet/>} />
-                <Route path='/eventhistory'element={<EventHistory/>} />
+                <Route path='/eventhistory'element={<CustomerEventHistory/>} />
                 <Route path='/customerprofile'element={<Profile/>} />
             </Routes>
         </SideBar>
