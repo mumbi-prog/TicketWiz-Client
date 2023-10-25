@@ -9,6 +9,7 @@ import EventHistory from './EventHistory';
 import Profile from './Profile';
 
 function MainClientApp() {
+
   return (
     <BrowserRouter>
         <SideBar>

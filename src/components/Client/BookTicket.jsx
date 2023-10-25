@@ -71,7 +71,7 @@ const BookTicket = () => {
           />
         </div>
 
-         <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-[50px]">
+         <div className="event-list sm:grid-cols-2 md:grid-cols-4 gap-6 my-[50px]">
            {paginatedEvents.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
               <div className="event-img">
@@ -92,7 +92,7 @@ const BookTicket = () => {
                 </div>
               </div>
               
-              <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
+              <button className="bk-btn z-[-50] bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
                 Book Ticket
               </button >
              
