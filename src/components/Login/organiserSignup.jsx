@@ -156,7 +156,7 @@ const SignUp = () => {
                   className="bg-blue-700 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-800 w-full mt-7"
                   onClick={handleAddAccount}
                 >
-                 <Link to="/login">CREATE ACCOUNT</Link>
+                  <Link to="/login">CREATE ACCOUNT</Link>
                 </button>
               </div>
             </form>
