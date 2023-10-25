@@ -17,7 +17,13 @@ function Profile() {
 
   if (loading) {
     return (
-    
+      <section class="dots-container mt-[15%]">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </section>
     );
   }
 
