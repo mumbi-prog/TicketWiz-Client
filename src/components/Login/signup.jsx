@@ -13,7 +13,7 @@ const SignUp = () => {
   const [errMsg, setErrMsg] = useState("");
 
 
-  const handleAddAccount = async () => {
+  const handleAddAccount = async () => { 
     try {
       const isPasswordValid = password === confirmPassword;
       if (!isPasswordValid) {
@@ -21,6 +21,7 @@ const SignUp = () => {
       } else {
         const response = await fetch("http://localhost:3000/signup", {
           method: "POST",
+          mode: 'cors', 
           body: JSON.stringify({
             email,
             password,
@@ -32,6 +33,7 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
         });
+        console.log ({response})
         if (response.ok) {
           
           navigate("/login");

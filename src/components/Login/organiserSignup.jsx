@@ -21,6 +21,7 @@ const SignUp = () => {
       } else {
         const response = await fetch("http://localhost:3000/signupOrg", {
           method: "POST",
+          mode: 'cors', 
           body: JSON.stringify({
             email,
             password,
