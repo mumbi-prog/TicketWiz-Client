@@ -253,12 +253,12 @@
 
 import React, { useEffect, useState } from 'react';
 import MyEvents from './MyEvents';
-
 const Greetings = ({ username }) => {
   return (
     <div className="ml-10 mb-10 mt-10">
       <h2 className="text-3xl font-semibold text-navy-blue">
         Welcome, {username}
+
       </h2>
       <p className="text-xl mt-2 font-semibold">Organizer Dashboard</p>
       
@@ -381,7 +381,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="event-cards">
+      <div className="flex flex-wrap justify-left ml-10">
         <MyEvents /> 
         {organizerEvents.map((event, index) => (
           
