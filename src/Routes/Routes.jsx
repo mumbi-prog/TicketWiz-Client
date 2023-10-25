@@ -23,11 +23,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Import other components here with lazy loading
-const LoginPage = React.lazy(() => import("../components/Login/login"));
-const CustomerLoginPage = React.lazy(() => import("../components/Login/customerLogin"));
-const OrganizerSignupPage = React.lazy(() => import("../components/Login/organiserSignup"));
-const HomePage = React.lazy(() => import("../Pages./Home"));
-const SignUpPage = React.lazy(() => import("../components/Login/signup"));
+import LoginPage from "../components/Login/login";
+import CustomerLoginPage from "../components/Login/customerLogin";
+import OrganizerSignupPage from "../components/Login/organiserSignup";
+import HomePage from '../Pages/Home';
+import SignUpPage from "../components/Login/signup";
 
 const AllRoutes = () => {
   return (
@@ -42,3 +42,4 @@ const AllRoutes = () => {
 };
 
 export default AllRoutes;
+
