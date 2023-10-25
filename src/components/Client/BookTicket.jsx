@@ -15,7 +15,7 @@ function formatDate(dateString) {
   );
 }
 
-const BookTicket = () => {
+const BookTicket = ({isOpen}) => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,7 +71,7 @@ const BookTicket = () => {
           />
         </div>
 
-         <div className="event-list sm:grid-cols-2 md:grid-cols-4 gap-6 my-[50px]">
+         <div className={`event-list grid ${isOpen ? 'grid-cols-4' : 'grid-cols-3'} sm:grid-cols-2 md:grid-cols-3 gap-8 my-[50px]`}>
            {paginatedEvents.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
               <div className="event-img">

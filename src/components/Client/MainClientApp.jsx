@@ -7,6 +7,8 @@ import BookTicket from './BookTicket';
 import TicketWallet from './TicketWallet';
 import EventHistory from './EventHistory';
 import Profile from './Profile';
+import EventDetails from '../Events/EventDetails';
+import Payment from '../Events/Payment';
 
 function MainClientApp() {
 
@@ -16,7 +18,9 @@ function MainClientApp() {
             <Routes>
                 <Route path='/'element={<Dashboard/>} />
                 <Route path='/dashboard'element={<Dashboard/>} /> 
-                <Route path='/bookticket'element={<BookTicket/>} />
+                <Route path='/bookticket'element={<BookTicket/>} /> 
+                <Route path="/events/:eventId" element={<EventDetails />} />
+                <Route path="/events/:eventId/checkout" element={<Payment />} />
                 <Route path='/ticketwallet'element={<TicketWallet/>} />
                 <Route path='/eventhistory'element={<EventHistory/>} />
                 <Route path='/customerprofile'element={<Profile/>} />
