@@ -41,7 +41,7 @@ const MyEvents = () => {
     ];
   return (
     <div className="container mx-auto py-6 sm:py-12 text-left">
-         <Greetings username="YourUsername" />
+         {/* <Greetings username="YourUsername" /> */}
       <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 p1-4">
         My Events
       </h2>

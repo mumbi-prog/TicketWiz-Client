@@ -1,59 +1,28 @@
-// import React, { useEffect, useState } from 'react';
-
-// const OrganizerProfile = () => {
-//     const [organizerInfo, setOrganizerInfo] = useState(null);
-
-//     // API call to fetch organizer's contact info
-//     useEffect(() => {
-//         fetch('/api/v1.0/users')
-//             .then((response) => response.json())
-//             .then((data) => {
-//                 setOrganizerInfo(data);
-//             })
-//             .catch((error) => {
-//                 console.log('Error fetching organizer information')
-//             });
-//     }, []);
-
-
-
-//   return (
-//     <div>
-//       <h2>Organizer Profile</h2>
-//       {organizerInfo ? (
-//         <div>
-//           <p>First Name: {organizerInfo.first_name}</p>
-//           <p>Last Name: {organizerInfo.last_name}</p>
-//           <p>Email: {organizerInfo.email}</p>
-//           <p>Age: {organizerInfo.age}</p>
-//         </div>
-//       ) : (
-//         <p>Loading organizer information...</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default OrganizerProfile;
-
 import React, { useEffect, useState } from 'react';
 
+const Greetings = ({ username }) => {
+  return (
+    <div className="ml-10 mb-10 mt-10">
+      <h2 className="text-3xl font-semibold text-navy-blue">
+        Welcome, {username}
+      </h2>
+      
+    </div>
+  );
+};
 const OrganizerProfile = () => {
-    const [organizerInfo, setOrganizerInfo] = useState(null);
-    const [editedInfo, setEditedInfo] = useState({}); // To store the edited information
+    const [editedInfo, setEditedInfo] = useState({}); 
 
-    // Function to handle changes in the input fields
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditedInfo({ ...editedInfo, [name]: value });
     };
 
-    // API call to fetch organizer's contact info
     useEffect(() => {
         fetch('/api/v1.0/users')
             .then((response) => response.json())
             .then((data) => {
-                setOrganizerInfo(data);
+                // You can remove the setOrganizerInfo here if you don't need it.
             })
             .catch((error) => {
                 console.log('Error fetching organizer information');
@@ -62,16 +31,9 @@ const OrganizerProfile = () => {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">Organizer Profile</h2>
-            {organizerInfo ? (
-                <div className="mb-4">
-                  
-                </div>
-            ) : (
-                <p>Loading organizer information...</p>
-            )}
+            <Greetings username="YourUsername" />
+            <h3 className="text-xl font-semibold text-blue-800 bg-blue-200 p-4 rounded-md ">Contact Information</h3>
 
-            {/* Input fields for editing */}
             <div className="mt-4">
                 <label className="block text-gray-600 text-sm font-bold mb-2"> First Name:</label>
                 <input
