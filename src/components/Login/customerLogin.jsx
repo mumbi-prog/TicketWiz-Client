@@ -3,17 +3,21 @@ import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
-const CustomerLoginPage = () => {
+
+  const CustomerLoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrMsg] = useState("");
-
+  const [successMsg, setSuccessMsg] = useState("")
+  
+  
   const handleLogin = async () => {
+    console.log(email, password, "here are the information");
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
-        mode: 'cors',
+        mode: 'cors', 
         body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json",
@@ -21,26 +25,26 @@ const CustomerLoginPage = () => {
       });
 
       if (response.ok) {
-        // Redirect to the welcome page
-        // navigate("/welcome");
-        // navigate("/welcome", { state: { firstName: data.firstName } });
-
         const data = await response.json();
-      const firstName = data.firstName; // Extract the first name from the response
-
-      // Redirect to the welcome page with the user's first name
-      navigate("/welcome", { state: { firstName } });
+        const receivedUsername = data.username;
+        localStorage.setItem("username", receivedUsername);
+        setSuccessMsg("Login successful!");
+        setUserRole("customer"); 
+    
+        navigate("/dashboard");
       } else {
+       
         setErrMsg("An error occurred while logging in");
         setTimeout(() => {
           setErrMsg("");
-        }, 3000);
+        }, 3000); 
       }
     } catch (error) {
+     
       setErrMsg("An error occurred while logging in");
       setTimeout(() => {
         setErrMsg("");
-      }, 3000);
+      }, 3000); 
     }
   };
 
@@ -107,7 +111,7 @@ const CustomerLoginPage = () => {
             </div>
             <div className="text-center">
               <button
-                type="button"
+                type="submit"
                 className="bg-blue-700 text-white font-semibold px-4 py-2 rounded-md hover-bg-blue-800 w-full mt-7"
                 onClick={handleLogin}
               >
@@ -115,7 +119,8 @@ const CustomerLoginPage = () => {
               </button>
             </div>
           </form>
-          <p>{errorMsg && <span className="text-red-500">{errorMsg}</span>}</p>
+          <p>{successMsg}</p> 
+          <p>{errorMsg}</p>
         </div>
       </div>
     </div>
@@ -123,3 +128,5 @@ const CustomerLoginPage = () => {
 };
 
 export default CustomerLoginPage;
+
+
