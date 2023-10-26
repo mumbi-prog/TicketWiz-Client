@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# TicketWiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+TicketWiz is an event management system that simplifies event creation, management, and ticket sales. It offers features for both event organisers and customers, making event planning and attendance a breeze.
 
-In the project directory, you can run:
+## Team Overview
 
-### `npm start`
+Our project is brought to you by a dedicated team 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Sylvia Mumbi** - *Project Manager and Backend Developer*
+- **Kenneth Wachira** - *Frontend Developer*
+- **Alex Kimanthi** - *Backend Developer*
+- **Gregg Ochieng** - *Backend Developer*
+- **Damaris Njeri** - *UI/UX Designer*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features 
 
-### `npm test`
+The Event Management System provides the following features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### For Organizers:
+- Dashboard with event statistics
+- Create and manage events
+- Track ticket sales and revenue
+- Organizer profile
 
-### `npm run build`
+### For Customers:
+- Browse and buy tickets for events
+- View event history
+- Ticket wallet for purchased tickets
+- Customer profile
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Payment:
+- Secure payments through M-Pesa
+- STK Push for payment initiation
+- STK Query for payment confirmation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Before you begin, ensure you have met the following requirements:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js and npm installed
+- Ruby on Rails for the backend
+- PostgreSQL for the database
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
+   ```sh
+   https://github.com/mumbi-prog/TicketWiz-Client
 
-## Learn More
+2. Locate the repository
+    ```sh
+    cd TicketWiz-Client
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install frontend dependencies 
+    ```sh
+    npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+### Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Sign up as an organizer or customer.
+* Log in with your credentials.
+* Access your profile.
 
-### Analyzing the Bundle Size
+### Organizer Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Get an overview of your events.
+* Track total tickets sold and revenue.
+* Manage created events.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Create Event
 
-### Advanced Configuration
+* Provide event details such as title, description, date, and location.
+* Set the available ticket count.
+* Publish your event.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### Ticket Sales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* View a table of your events.
+* See event details, tickets sold, and total revenue.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Customer Features
+* Browse featured events.
+* Buy tickets for desired events.
+* Track event history.
+* Store purchased tickets in your wallet.
+
+
+### Payment
+* Securely purchase tickets with M-Pesa.
+* Use STK Push for payment initiation.
+* Use STK Query to confirm payment status.
+
+
+### Event Details
+* View event information, including date, time, venue, and location.
+
+
+### License
+This project is licensed under the MIT License 
+
+# Link to deployed site
