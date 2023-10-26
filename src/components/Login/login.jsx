@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
-
   const LoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
