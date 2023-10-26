@@ -239,7 +239,7 @@ const CreateEvent = () => {
             </div>
             <h2 className="text-2xl font-bold mb-8">Create Event</h2>
             <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+                <div className="input-container">
                     <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="title">
                         Title:
                     </label>
