@@ -103,3 +103,9 @@ Before you begin, ensure you have met the following requirements:
 
 ### Event Details
 * View event information, including date, time, venue, and location.
+
+
+### License
+This project is licensed under the MIT License 
+
+# Link to deployed site
