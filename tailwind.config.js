@@ -16,6 +16,7 @@ module.exports = {
         'text-color': '#fff',
         'main-blue': '#0A3DA6',
         'lighter-blue': '#3e60a7',
+        'acc-blue': '#6176BA',
         'black': '#000000',
         'button-color': '#f70c9d',
         'head-color': '#242565',

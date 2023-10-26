@@ -80,13 +80,12 @@ function EventDetails() {
           <div className="event-actions  flex justify-between items-end gap-[10px] mt-[83px]">
          
            <Link
-          onClick={handleGetTicketClick}
-          className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] cursor-pointer"
-        >
-          Get Ticket
-        </Link>
-           {/* <button className="btn btn-secondary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase  px-[30px] py-[10px]">Add to Calendar</button> */}
-              <AddToCalendar event={event} />
+              onClick={handleGetTicketClick}
+              className="btn btn-primary rounded-md text-sm italic bg-lighter-blue text-text-color font-sans font-bold uppercase px-[30px] py-[10px] cursor-pointer"
+            >
+              Get Ticket
+            </Link>
+           <AddToCalendar event={event} />
           </div>
        
           {showPaymentModal && (
