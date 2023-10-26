@@ -346,7 +346,6 @@ const SignUp = () => {
                   onClick={handleAddAccount}
                 >
                   <Link to="/customerlogin">CREATE ACCOUNT</Link>
-
                 </button>
               </div>
             </form>
