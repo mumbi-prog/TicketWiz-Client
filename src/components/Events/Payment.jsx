@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 function formatTime(timeString) {
   const time = new Date(timeString);
@@ -38,10 +38,27 @@ function addSuffix(day) {
   }
 }
 
-
-function Payment({ event }) {
+function Payment({ event, customerId }) {
   const [ticketType, setTicketType] = useState('MVP');
   const [quantity, setQuantity] = useState(0);
+  const [customerPhoneNumber, setCustomerPhoneNumber] = useState('');
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((customer) => {
+        setCustomerPhoneNumber(customer.phone_number);
+      })
+      .catch((error) => {
+        console.error('Cannot fetch phone number:', error);
+      });
+  }, [customerId]);
+
 
   const calculatePrice = () => {
     const basePrice = event.price;
@@ -59,6 +76,7 @@ function Payment({ event }) {
   const handlePayment = () => {
     const ticketData = {
       event_id: event.id,
+      customer_id: customerId,
       ticket_type: ticketType,
       quantity: quantity,
     };
@@ -72,32 +90,34 @@ function Payment({ event }) {
     })
       .then((response) => response.json())
       .then((ticket) => {
+        const ticketPrice = calculatePrice();
 
-        const paymentData = {
-          ticket_id: ticket.id,
-          amount: calculatePrice(),
-          status: 'completed',
+        const formattedPhoneNumber = customerPhoneNumber.slice(3);
+        const mpesaData = {
+          phoneNumber: formattedPhoneNumber,
+          amount: Math.round(ticketPrice),
         };
 
-        fetch('http://localhost:3000/payments', {
+        fetch('http://localhost:3000/stkpush', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(paymentData),
+          body: JSON.stringify(mpesaData),
         })
           .then((response) => response.json())
-          .then((payment) => {
-            console.log('Payment completed:', payment);
+          .then((response) => {
+            console.log('Pending: ', response);
           })
           .catch((error) => {
-            console.error('Payment failed:', error);
+            console.error('Failed:', error);
           });
       })
       .catch((error) => {
-        console.error('Ticket could ot be created', error);
+        console.error('Ticket could not be created', error);
       });
-  }; 
+  };
+
 
   return (
     <div className='payment-container pl-[20px] font-sans'>
@@ -109,53 +129,52 @@ function Payment({ event }) {
           <p className='ml-[5px]'> {formatTime(event.start_time)} to {formatTime(event.end_time)}</p>
         </div>
         <p className='font-bold mb-0'>{event.title}</p>
-        <p className='text-lighter-blue mt-0 mb-0'>at the {event.venue_name}, {event.event_location}</p>
+        <p className='text-lighter-blue mt-0 mb-0'>
+          at the {event.venue_name}, {event.event_location}
+        </p>
       </div>
-      
+
       <div className="ticket-details flex flex-col align-items-center gap-[20px]">
-          <div className="labels flex rounded-md gap-[120px] uppercase mt-[15px] bg-text-color mb-[15px] mt-[10px] px-[10px] py-[10px] w-[700px]">
-            <label htmlFor="ticketType">Ticket Type</label>
-            <label htmlFor="quantity">Quantity</label>
-            <label htmlFor="price">Price</label>
-            <label htmlFor="totalPrice">Total Price</label>
+        <div className="labels flex rounded-md gap-[120px] uppercase mt-[15px] bg-text-color mb-[15px] mt-[10px] px-[10px] py-[10px] w-[700px]">
+          <label htmlFor="ticketType">Ticket Type</label>
+          <label htmlFor="quantity">Quantity</label>
+          <label htmlFor="price">Price</label>
+          <label htmlFor="totalPrice">Total Price</label>
+        </div>
+
+        <div className="details rounded-md flex gap-[80px] items-center bg-text-color px-[10px] py-[10px] w-[700px]">
+          <div className="ticket-type w-[150px] p-2 my-1 border border-gray-300 rounded-md">
+            <select id="ticketType" value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
+              <option value="MVP">MVP</option>
+              <option value="Early Booking">Early Booking</option>
+              <option value="Regular">Regular</option>
+            </select>
           </div>
 
-          <div className="details rounded-md flex gap-[80px] items-center bg-text-color px-[10px] py-[10px] w-[700px]">
-            <div className="ticket-type w-[150px] p-2 my-1 border border-gray-300 rounded-md">
-              <select id="ticketType" value={ticketType} onChange={(e) => setTicketType(e.target.value)}>
-                <option value="MVP">MVP</option>
-                <option value="Early Booking">Early Booking</option>
-                <option value="Regular">Regular</option>
-              </select>
-            </div>
-
-            <div className="quantity w-[100px] ml-[-21px] p-2 my-1 border border-gray-300 rounded-md">
-              <input type="number" id="quantity" value={quantity} min={0} max={10} onChange={(e) => setQuantity(e.target.value)}  />
-            </div>
-
-            <div className="price ml-[13px]">
-              <p>{event.price}</p>
-            </div>
-
-            <div className="total-price ml-[57px]">
-              <p>{calculatePrice()}</p>
-            </div>
+          <div className="quantity w-[100px] ml-[-21px] p-2 my-1 border border-gray-300 rounded-md">
+            <input type="number" id="quantity" value={quantity} min={0} max={10} onChange={(e) => setQuantity(e.target.value)}/>
           </div>
 
-          <div className="total-price font-bold uppercase flex gap-[500px] ">
-              <p className='font-bold'>Total</p>
-              <p className='font-bold'>Kes {calculatePrice()}</p>
+          <div className="price ml-[13px]">
+            <p>{event.price}</p>
           </div>
+
+          <div className="total-price ml-[57px]">
+            <p>{calculatePrice()}</p>
+          </div>
+        </div>
+
+        <div className="total-price font-bold uppercase flex gap-[500px] ">
+          <p className='font-bold'>Total</p>
+          <p className='font-bold'>Kes {calculatePrice()}</p>
+        </div>
       </div>
 
-      <button
-        onClick={handlePayment}
-        className="btn btn-primary rounded-full text-sm italic bg-checkout-btn text-text-color font-sans px-[25px] py-[10px] mt-[20px]"
-      >
+      <button onClick={handlePayment} className="btn btn-primary rounded-full text-sm italic bg-checkout-btn text-text-color font-sans px-[25px] py-[10px] mt-[20px]">
         Check out
       </button>
     </div>
-  )
+  );
 }
 
-export default Payment
+export default Payment;
