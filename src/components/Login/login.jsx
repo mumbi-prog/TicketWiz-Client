@@ -5,7 +5,7 @@ import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
 
-  const LoginPage = () => {
+  const LoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +31,7 @@ import logo from './../../images/logo.png';
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
+        setUserRole(data.userRole); 
 
         navigate("/dashboard");
       } else {

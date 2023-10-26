@@ -4,7 +4,7 @@ import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
 
 
-  const CustomerLoginPage = () => {
+  const CustomerLoginPage = ({ setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,14 +25,12 @@ import logo from './../../images/logo.png';
       });
 
       if (response.ok) {
-        
         const data = await response.json();
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
-
-
-        
+        setUserRole("customer"); 
+    
         navigate("/dashboard");
       } else {
        
