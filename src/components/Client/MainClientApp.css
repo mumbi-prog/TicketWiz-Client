@@ -13,9 +13,10 @@ main{
 .sidebar {
     background-color: #6176BA;
     color: beige;
-    /* height: 206vh; */
-    height: 100vh;
+    /* height: 100%; */
     transition: all 0.8s;
+    left: 0; 
+    top: 0; 
 }
 .logo-container{
     display: flex;
