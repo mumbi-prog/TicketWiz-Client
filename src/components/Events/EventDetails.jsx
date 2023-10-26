@@ -85,7 +85,9 @@ function EventDetails() {
             >
               Get Ticket
             </Link>
-           <AddToCalendar event={event} />
+           {/* <AddToCalendar event={event} /> */}
+           <AddToCalendar event={event} start_time={event.start_time} end_time={event.end_time} />
+
           </div>
        
           {showPaymentModal && (
