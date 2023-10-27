@@ -77,10 +77,11 @@ const SignUp = () => {
             <Link to={"/"} className="app-name font-bold text-3xl text-text-color">TicketWiz</Link>
             <img src={logo} alt="" className="w-[550px]"/>
           </div>
-          <div className="w-96 p-8  ml-20 mt-10 w-[500px]">
-            <h5 className="text-5xl font-medium mb-4 text-center text-black">
-              Register
-            </h5>
+          <div className="w-96 p-8  ml-20 mt-[5px] w-[500px]">
+              <h5 className="text-5xl font-medium mb-4 text-center text-black">
+                Register
+              </h5>
+              <p className="text-center text-black mb-[10px]">Have an account? <Link to={"/login"} className="text-text-color font-medium underline">Log In</Link> instead</p>
             <form className="user-signup">
               <div className="user-name flex gap-[20px]">
                 <div className="mb-2">
