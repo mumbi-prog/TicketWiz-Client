@@ -1,47 +1,53 @@
-           
+         
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
 import logo from './../../images/logo.png';
+import axios from 'axios';
+
 
   const LoginPage = ({ setUserRole }) => {
+    console.log("hello world")
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [errorMsg, setErrMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("")
-  
-  
-  const handleLogin = async () => {
-    console.log(email, password, "here are the information");
-    try {
-      const response = await fetch("http://localhost:3000/loginOrg", {
-        method: "POST",
-        mode: 'cors', 
-        body: JSON.stringify({ email, password }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
 
-      if (response.ok) {
-        
-        const data = await response.json();
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData)
+    // alert("hello",email,password)
+    try {
+      const response = await axios.post('http://localhost:3000/loginOrg', formData);
+      console.log(response,"++++++++===>")
+
+      if (response) {
+        const data = response?.data;
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
-        setUserRole(data.userRole); 
-
+        setUserRole("customer"); 
+    
         navigate("/dashboard");
       } else {
-       
+       navigate("/dashboardd")
         setErrMsg("An error occurred while logging in");
         setTimeout(() => {
           setErrMsg("");
         }, 3000); 
       }
     } catch (error) {
-     
+      navigate("/dashboard")
+     console.log(error)
       setErrMsg("An error occurred while logging in");
       setTimeout(() => {
         setErrMsg("");
@@ -71,13 +77,13 @@ import logo from './../../images/logo.png';
           </h2>
           <h2 className="text-1xl font-bold mb-4 text-center text-black">
             Don't have an account?{" "}
-            <Link to="/organizersignup">
-              <span className="font-bold mb-4 text-black underline">OrganizerSignup</span>
+            <Link to="/signup">
+              <span className="font-bold mb-4 text-black underline">Signup</span>
             </Link>{" "}
             instead.
           </h2>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -92,8 +98,10 @@ import logo from './../../images/logo.png';
                 name="email"
                 className="mt-1 p-2 w-full border rounded-md bg-white"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+            onChange={handleChange}
+                // value={email}
+                // onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mb-4">
@@ -106,15 +114,16 @@ import logo from './../../images/logo.png';
               <PasswordInput
                 name="password"
                 placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+
+            onChange={handleChange}
               />
             </div>
             <div className="text-center">
               <button
                 type="submit"
                 className="bg-blue-700 text-white font-semibold px-4 py-2 rounded-md hover-bg-blue-800 w-full mt-7"
-                onClick={handleLogin}
+                
               >
                 Log In
               </button>
@@ -129,4 +138,3 @@ import logo from './../../images/logo.png';
 };
 
 export default LoginPage;
-

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-function PasswordInput({ name, title, placeholder }) {
+function PasswordInput({ name, title, placeholder, value, onChange}) {
+
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -16,6 +17,8 @@ function PasswordInput({ name, title, placeholder }) {
         id={name}
         name={name}
         placeholder={placeholder}
+        value={value}
+      onChange={onChange}
       />
       <div
         className="password-toggle absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer mt-2"
