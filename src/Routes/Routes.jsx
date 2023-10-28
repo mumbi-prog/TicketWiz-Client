@@ -7,13 +7,11 @@ import OrganizerSignupPage from "../components/Login/organiserSignup";
 import SignUpPage from "../components/Login/signup";
 import OrganizerDashboard from "../components/Organizer/Dashboard";
 import CustomerDashboard from "../components/Client/Dashboard";
-import HomePage from '../Pages/Home';
 
 const AllRoutes = () => {
   const [userRole, setUserRole] = useState(""); 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
       <Route path="/customerlogin" element={<CustomerLoginPage/>} />
       <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
       <Route path="/customersignup" element={<SignUpPage />} />
