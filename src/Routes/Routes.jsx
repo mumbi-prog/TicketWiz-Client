@@ -10,6 +10,7 @@ import CustomerDashboard from "../components/Client/Dashboard";
 
 const AllRoutes = () => {
   const [userRole, setUserRole] = useState(""); 
+  
   return (
     <Routes>
       <Route path="/customerlogin" element={<CustomerLoginPage/>} />
