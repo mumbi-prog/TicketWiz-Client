@@ -36,15 +36,13 @@ const SignUp = () => {
           method: "POST",
           mode: 'cors',
           body: JSON.stringify({
-            customer: {
-              email,
-              password,
-              first_name: firstName,
-              last_name: lastName,
-              age,
-              phone_number: phoneNumber
-            }
-          }),
+            email,
+            password,
+            first_name: firstName,
+            last_name: lastName,
+            age,
+            phone_number: phoneNumber
+          }),          
           headers: {
             "Content-Type": "application/json",
           },
@@ -53,7 +51,8 @@ const SignUp = () => {
         if (response.ok) {
           navigate("/customerlogin");
         } else {
-          setErrMsg("Couldn't create account. Try again.");
+          const errorResponse = await response.json();
+          setErrMsg(errorResponse.error || "Couldn't create the account. Try again.");
           setTimeout(() => {
             setErrMsg("");
           }, 3000);
