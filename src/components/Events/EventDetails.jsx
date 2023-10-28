@@ -6,7 +6,8 @@ import AddToCalendar from './AddToCalendar';
 import { Link } from 'react-scroll';
 import Payment from './Payment';
 import './Payment.css';
-import {MdClose} from 'react-icons/md'
+import {MdClose} from 'react-icons/md';
+import Navbar from '../LandingPage/Navbar';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -58,6 +59,8 @@ function EventDetails() {
   };
 
   return (
+    <div>
+      <Navbar />
     <div className="event-details-container my-[40px] mx-[150px] max-w-screen-lg ">
       <div className="event-details max-w-screen-lg flex flex-row gap-[-10px] font-sans">
         <div className="event-image style={{ flex: '1' }}">
@@ -104,6 +107,7 @@ function EventDetails() {
         </div>
       </div>
      
+    </div>
     </div>
   )
 }
