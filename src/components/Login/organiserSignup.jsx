@@ -36,7 +36,7 @@ const SignUp = () => {
           method: "POST",
           mode: 'cors',
           body: JSON.stringify({
-            customer: {
+            organiser: {
               email,
               password,
               first_name: firstName,

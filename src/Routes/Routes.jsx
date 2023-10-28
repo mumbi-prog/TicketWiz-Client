@@ -37,7 +37,7 @@ const AllRoutes = () => {
       <Route path="/customerlogin" element={<CustomerLoginPage/>} />
       <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
       <Route path="/customersignup" element={<SignUpPage />} />
-      <Route path="/organizersignup" element={<OrganizerSignupPage />} />
+      <Route path="/organisersignup" element={<OrganizerSignupPage />} />
       {userRole === "organizer" && (
         <Route path="/dashboard" element={<OrganizerDashboard />} />
       )}
