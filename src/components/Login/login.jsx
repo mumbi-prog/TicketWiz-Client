@@ -77,7 +77,7 @@ import axios from 'axios';
           </h2>
           <h2 className="text-1xl font-bold mb-4 text-center text-black">
             Don't have an account?{" "}
-            <Link to="/signup">
+            <Link to="/organisersignup">
               <span className="font-bold mb-4 text-black underline">Signup</span>
             </Link>{" "}
             instead.
