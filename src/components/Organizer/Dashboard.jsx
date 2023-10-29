@@ -133,7 +133,7 @@ function formatDate(dateString) {
   );
 }
 
-function OrganizerDashboard() {
+function Dashboard() {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
   const [eventCount, setEventCount] = useState(0);
@@ -176,7 +176,7 @@ function OrganizerDashboard() {
 
   const handleDeleteEvent = (event) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
-      fetch(`/events/${event.id}`, {
+      fetch(`http://localhost:3000/events/${event.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -184,7 +184,7 @@ function OrganizerDashboard() {
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Cannot delete');
           }
           setEvents((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
         })
@@ -209,7 +209,7 @@ function OrganizerDashboard() {
       available_tickets_count: updatedEventTicketCount,
     };
 
-    fetch(`/events/${eventToUpdate.id}`, {
+    fetch(`http://localhost:3000/events/${eventToUpdate.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ function OrganizerDashboard() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Cannot update');
         }
         return response.json();
       })
@@ -240,7 +240,7 @@ function OrganizerDashboard() {
     fetch('http://localhost:3000/organiser_dashboard')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(' Cannot fetch your events');
         }
         return response.json();
       })
@@ -318,4 +318,4 @@ function OrganizerDashboard() {
   );
 }
 
-export default OrganizerDashboard;
+export default Dashboard;
