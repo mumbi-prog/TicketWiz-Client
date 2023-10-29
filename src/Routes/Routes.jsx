@@ -30,7 +30,7 @@ import OrganizerDashboard from "../components/Organizer/Dashboard";
 import CustomerDashboard from "../components/Client/Dashboard";
 
 const AllRoutes = () => {
-  const [userRole, setUserRole] = useState(""); 
+  const [ setUserRole] = useState(""); 
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -38,12 +38,12 @@ const AllRoutes = () => {
       <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/organizersignup" element={<OrganizerSignupPage />} />
-      {userRole === "organizer" && (
-        <Route path="/dashboard" element={<OrganizerDashboard />} />
-      )}
-      {userRole === "customer" && (
+      
+        <Route path="/organizerdashboard" element={<OrganizerDashboard />} />
+     
+      
         <Route path="/dashboard" element={<CustomerDashboard />} />
-      )}
+     
     </Routes>
   );
 };
