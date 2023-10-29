@@ -36,7 +36,7 @@ import axios from 'axios';
         setSuccessMsg("Login successful!");
         setUserRole("customer"); 
     
-        navigate("/dashboard");
+        navigate("/welcust");
       } else {
        
         setErrMsg("An error occurred while logging in");

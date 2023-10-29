@@ -26,7 +26,7 @@ function SideBar({children}) {
             </div>
             {
                 navItem.map((item, index)=>(
-                    <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                    <NavLink to={item.path} key={index} className="link" activeClassName="active">
                         <div style={{marginLeft: isOpen ? "20px" : "-13px"}} className="icon">{item.icon}</div>
                         <div style={{display: isOpen ? "block" : "none"}} className="link-text">{item.name}</div>
                     </NavLink>

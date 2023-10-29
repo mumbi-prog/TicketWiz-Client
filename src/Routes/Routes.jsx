@@ -23,7 +23,7 @@ const AllRoutes = () => {
       )}
       {userRole === "customer" && (
         <Route path="/dashboard" element={<CustomerDashboard />} />
-      )}
+      )} 
     </Routes>
   );
 };

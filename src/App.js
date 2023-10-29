@@ -31,3 +31,16 @@ function App() {
 }
 
 export default App;
+
+// import React from 'react'
+// import WelOrg from './components/Organizer/WelOrg'
+
+
+
+// function App() {
+//   return (
+//     <div><WelOrg /></div>
+//   )
+// }
+
+// export default App
