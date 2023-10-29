@@ -1,3 +1,4 @@
+         
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../passwordInput";
@@ -5,7 +6,7 @@ import logo from './../../images/logo.png';
 import axios from 'axios';
 
 
-  const CustomerLoginPage = ({ setUserRole }) => {
+  const LoginPage = ({ setUserRole }) => {
     console.log("hello world")
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -34,18 +35,19 @@ import axios from 'axios';
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
-        setUserRole("customer"); 
+         
     
-        navigate("/dashboard");
+        navigate("/customerdashboard");
       } else {
-       
+      
         setErrMsg("An error occurred while logging in");
         setTimeout(() => {
           setErrMsg("");
         }, 3000); 
       }
     } catch (error) {
-     
+      
+     console.log(error)
       setErrMsg("An error occurred while logging in");
       setTimeout(() => {
         setErrMsg("");
@@ -135,6 +137,5 @@ import axios from 'axios';
   );
 };
 
-export default CustomerLoginPage;
-
+export default LoginPage;
 

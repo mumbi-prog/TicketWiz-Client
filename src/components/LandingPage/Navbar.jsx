@@ -50,7 +50,7 @@ const Navbar = () => {
               </RouterLink>
             </div>
             <div className="mb-2">
-              <RouterLink to="/login" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/organiserlogin" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
                   Login as Organizer
                 </button>

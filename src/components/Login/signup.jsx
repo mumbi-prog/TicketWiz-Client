@@ -80,7 +80,7 @@ const SignUp = () => {
               <h5 className="text-5xl font-medium mb-4 text-center text-black">
                 Register
               </h5>
-              <p className="text-center text-black mb-[10px]">Already a member? <Link to={"/login"} className="text-text-color font-medium underline">Sign in</Link> instead</p>
+              <p className="text-center text-black mb-[10px]">Already a member? <Link to={"/customerlogin"} className="text-text-color font-medium underline">Sign in</Link> instead</p>
             <form className="user-signup">
               <div className="user-name flex gap-[20px]">
                 <div className="mb-2">
