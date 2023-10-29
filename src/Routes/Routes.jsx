@@ -8,6 +8,7 @@ import HomePage from '../Pages./Home';
 import SignUpPage from "../components/Login/signup";
 import OrganizerDashboard from "../components/Organizer/Dashboard";
 import CustomerDashboard from "../components/Client/Dashboard";
+// import OrganizerProfile from "../components/Organizer/OrganizerProfile";
 
 const AllRoutes = () => {
   const [userRole, setUserRole] = useState(""); 
