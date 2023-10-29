@@ -35,16 +35,18 @@ import axios from 'axios';
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
-        setUserRole("organizer"); 
+         
     
-        navigate("/dashboard");
+        navigate("/organizerdashboard");
       } else {
+      
         setErrMsg("An error occurred while logging in");
         setTimeout(() => {
           setErrMsg("");
         }, 3000); 
       }
     } catch (error) {
+      
      console.log(error)
       setErrMsg("An error occurred while logging in");
       setTimeout(() => {
