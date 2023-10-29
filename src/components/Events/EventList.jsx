@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './../Events/Events.css';
+import './Events.css';
 import { FaLocationDot } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ function formatDate(dateString) {
   );
 }
 
-const BookTicket = ({isOpen}) => {
+const EventList = () => {
   const [events, setEvents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,7 +71,7 @@ const BookTicket = ({isOpen}) => {
           />
         </div>
 
-         <div className={`event-list grid ${isOpen ? 'grid-cols-4' : 'grid-cols-3'} sm:grid-cols-2 md:grid-cols-3 gap-8 my-[50px]`}>
+         <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-[50px]">
            {paginatedEvents.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
               <div className="event-img">
@@ -92,7 +92,7 @@ const BookTicket = ({isOpen}) => {
                 </div>
               </div>
               
-              <button className="bk-btn z-[-50] bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
+              <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
                 Book Ticket
               </button >
              
@@ -133,7 +133,7 @@ const BookTicket = ({isOpen}) => {
   );
 };
 
-export default BookTicket;
+export default EventList;
 
        
 

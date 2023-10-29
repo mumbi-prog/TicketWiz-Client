@@ -61,7 +61,7 @@ const SignUp = () => {
         <div className="flex justify-center items-center w-[100%] bg-gradient-to-r from-gradient-color1 to-gradient-color2 p-[5px] pr-[30px]">
           <div className="w-80 h-[80%] mr-20 p-8 rounded shadow">
             <h1 className="text-3xl font-bold mb-14 mt-[50%] text-center text-white">
-              <Link to="/">TicketWiz</Link>
+              <Link to="/home">TicketWiz</Link>
             </h1>
             <img
               src={logo} alt="Logo"
