@@ -13,7 +13,7 @@ import "./landingpage.css";
 
 function Clients() {
   return (
-    <section className="clients flex flex-col items-center">
+    <section className="clients flex flex-col items-center mb-[40px]">
         <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px]">Our clients</h2>
         <p className="text-center text-sm pt-[10px]">Here are just a few of the organizations we've had the privilege of working with</p>
         <div className="clients-container grid grid-cols-5 gap-x-[40px] items-center">

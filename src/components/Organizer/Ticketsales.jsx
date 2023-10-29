@@ -1,44 +1,58 @@
 import React, { useEffect, useState } from "react";
 
-const TicketSales = () => {
-    const [events, setEvents] = useState([]);
-
-    useEffect(() => {
-        // API call to get data
-        fetch('/api/organizer/events')
-            .then((response) => response.json())
-            .then((data) => setEvents(data))
-            .catch((error) => console.error('Error fetching events', error));
-    }, []);
-
-    return (
-        <div>
-          <h2>Ticket Sales</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Event Name</th>
-                <th>Date</th>
-                <th>Tickets Sold</th>
-                <th>Total Revenue</th>
-              </tr>
-            </thead>
-            <tbody>
-              {events.map((event) => (
-                <tr key={event.id}>
-                  <td>{event.title}</td>
-                  <td>{event.date}</td>
-                  <td>{event.ticketsSold}</td> 
-                  {/* // to replace with correct property name */}
-                  <td>{event.totalRevenue}</td> 
-                   {/* // to replace with correct property name */}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-    );
+const Greetings = ({ username }) => {
+  return (
+    <div className="ml-10 mb-10 mt-10">
+      <h2 className="text-3xl font-semibold text-navy-blue">
+        Welcome, {username}
+      </h2>
+    </div>
+  );
 };
 
+const TicketSales = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/organizer/events')
+      .then((response) => response.json())
+      .then((data) => setEvents(data))
+      .catch((error) => console.error('Error fetching events', error));
+  }, []);
+
+  return (
+    <div className="gray-background">
+  <Greetings username="YourUsername" />
+  <h2 className="text-2xl font-semibold">Ticket Sales and Revenue</h2>
+  <div className="flex flex-row">
+    <div className="gray-section flex-grow">
+      <h3 className="text-lg font-semibold">Event Name</h3>
+      {events.map((event) => (
+        <p key={event.id}>{event.title}</p>
+      ))}
+    </div>
+    <div className="gray-section flex-grow">
+      <h3 className="text-lg font-semibold">Date</h3>
+      {events.map((event) => (
+        <p key={event.id}>{event.date}</p>
+      ))}
+    </div>
+    <div className="gray-section flex-grow">
+      <h3 className="text-lg font-semibold">Tickets Sold</h3>
+      {events.map((event) => (
+        <p key={event.id}>{event.ticketsSold}</p>
+      ))}
+    </div>
+    <div className="gray-section flex-grow">
+      <h3 className="text-lg font-semibold">Total Revenue</h3>
+      {events.map((event) => (
+        <p key={event.id}>{event.totalRevenue}</p>
+      ))}
+    </div>
+  </div>
+</div>
+
+  );
+};
 
 export default TicketSales;

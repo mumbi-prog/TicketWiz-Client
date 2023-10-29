@@ -71,3 +71,4 @@ function PasswordInput({ name, title, placeholder, value, onChange}) {
 }
 
 export default PasswordInput;
+
