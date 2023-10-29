@@ -24,7 +24,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "../components/Login/login";
 import CustomerLoginPage from "../components/Login/customerLogin";
 import OrganizerSignupPage from "../components/Login/organiserSignup";
-import SignUpPage from "../components/Login/signup";
+import CustomerSignupPage from '../components/Login/signup';
 import OrganizerDashboard from "../components/Organizer/Dashboard";
 import CustomerDashboard from "../components/Client/Dashboard";
 
@@ -33,14 +33,11 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/customerLogin" element={<CustomerLoginPage />} />
+      <Route path="/customersignup" element={<CustomerSignupPage />} />
       <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
-      <Route path="/signup" element={<SignUpPage />} />
       <Route path="/organizersignup" element={<OrganizerSignupPage />} />
-      
-        <Route path="/organizerdashboard" element={<OrganizerDashboard />} />
-     
-      
-        <Route path="/dashboard" element={<CustomerDashboard />} />
+      <Route path="/organizerdashboard" element={<OrganizerDashboard />} />
+      <Route path="/dashboard" element={<CustomerDashboard />} />
      
     </Routes>
   );
