@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateEvent = () => {
     const [eventDetails, setEventDetails] = useState({
         title: '',
         description: '',
-        category: '', // Add other event details fields here
-        image_url: '',
+        category: '', 
         date: '',
         start_time: '',
         end_time: '',
@@ -13,6 +14,9 @@ const CreateEvent = () => {
         event_location: '',
         available_tickets_count: 0,
     });
+
+    const navigate = useNavigate();
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -37,6 +41,7 @@ const CreateEvent = () => {
                 // event created successfully
                 console.log('Event created successfully!');
                 // redirect to event details page
+                navigate('/organiserlogin');
             } else {
                 //handle error cases
                 console.log('Failed to create event.');
