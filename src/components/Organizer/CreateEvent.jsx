@@ -175,13 +175,19 @@
 // export default CreateEvent;
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateEvent = () => {
     const [eventDetails, setEventDetails] = useState({
         title: '',
         description: '',
+<<<<<<< HEAD
+        category: '', 
+=======
         category: '',
         image_url: '',
+>>>>>>> 933268f21f1a4813f86848fabb43de62577a0b98
         date: '',
         start_time: '',
         end_time: '',
