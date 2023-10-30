@@ -1,99 +1,79 @@
-import React from "react";
-import { FaLocationDot } from "react-icons/fa6";
+import React, { useState, useEffect } from 'react';
+import { FaLocationDot } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const month = date.toLocaleDateString(undefined, { month: 'short' });
+  const day = date.getDate();
+  return (
+    <div className="event-date font- font-bold flex flex-col items-center justify-center mt-[2px]">
+      <p className="month text-main-blue font-medium text-sm">{month}</p>
+      <p className="day text-3xl mt-[-2px] font-bold">{day}</p>
+    </div>
+  );
+}
 
 const FeaturedEvents = () => {
-  const eventsData = [
-    {
-      title: "MUSICFEST 2023",
-      image:
-        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-      description: "123 Lane, Nakuru",
-      date: "4",
-      month: "OCT",
-      otherDetails: "Other Details 4",
-    },
-    {
-      title: "MUSICFEST 2023",
-      image:
-        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-      description: "123 Lane, Nakuru",
-      date: "4",
-      month: "OCT",
-      otherDetails: "Other Details 4",
-    },
-    {
-      title: "MUSICFEST 2023",
-      image:
-        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-      description: "123 Lane, Nakuru",
-      date: "4",
-      month: "OCT",
-      otherDetails: "Other Details 4",
-    },
-    {
-      title: "MUSICFEST 2023",
-      image:
-        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
-      description: "123 Lane, Nakuru",
-      date: "4",
-      month: "OCT",
-      otherDetails: "Other Details 4",
-    },
-  ];
+  const [featuredEvents, setFeaturedEvents] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('http://localhost:3000/featured_events')
+      .then((response) => response.json())
+      .then((data) => setFeaturedEvents(data))
+      .catch((error) => console.error('Error fetching featured events:', error));
+  }, []);  
+
+  const handleBookTicketClick = (event) => {
+    navigate(`/events/${event.id}`);
+  };
 
   return (
     <div className="container mx-auto py-12 pl-[30px] pr-[30px]">
-      <h2 className="font-sans text-head-color font-bold text-4xl pt-[5px] pb-[15px] ">
+      <h2 className="font-sans text-head-color font-bold text-4xl pt-[5px] pb-[15px]">
         Featured Events
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {eventsData.map((event, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300"
-          >
-            <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-40 object-cover"
-            />
-            <div className="flex">
-              <div className="bg-white p-4">
-                <span className="text-blue-600 ml-2 font-bold text-xs">
-                  {event.month}
-                </span>
-                <br />
-                <span className="text-gray-800 ml-2 font-bold text-4xl">
-                  {event.date}
-                </span>
-              </div>
-              <div className="w-3/4 bg-white text-white p-4 font-sans" >
-                <div className="mb-2">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {event.title}
-                  </h3>
-                  <div className="flex items-center">
-                    <FaLocationDot className="text-gray-600" />
-                    <p className="font-sans text-gray-600 ml-2 font-small text-sm">
-                      {event.description}
-                    </p>
-                  </div>
-                </div>
-                <button className="bg-button-color text-white h-[30px] w-[150px] rounded-full mt-2 pt-[3px] pb-[3px] ml-[-10px]">
-                  Book Ticket
-                </button>
-              </div>
-            </div>
-          </div>
+        {featuredEvents.map((event, index) => (
+           <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
+           <div className="event-img">
+             <img src={event.image_url} alt={event.title} className="h-[150px] w-[280px] object-cover rounded-t-lg" />
+           </div>
+           <div className="event-selected-details flex p-5">
+             <div className="event-date">
+               <p>{formatDate(event.date)}</p>
+             </div>
+             <div className="eve-nue pl-6">
+               <h3 className="e-title font-sans mt-[0] text-lg font-bold uppercase text-black ml-[2px]">{event.title}</h3>
+               <div className="venue1 flex items-center">
+                 <p className="text-black text-md mr-[5px] mt-[5px]">
+                   <FaLocationDot className="location-icon1" />
+                 </p>
+                 <p className="local1 text-sm mt-[5px]">{event.venue_name}, {event.event_location}</p>
+               </div>
+             </div>
+           </div>
+           
+           <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
+             Book Ticket
+           </button >
+          
+         </div>
         ))}
       </div>
-      <div className="text-center mt-6">
-        <button className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400">
+      <div className="text-center mt-[35px]">
+        <Link
+          to="/events"
+          className="bg-white-500 text-sky-400/100 border border-sky-500 px-4 py-2 rounded-full hover:bg-blue-400 hover:text-white hover:font-medium"
+        >
           See More
-        </button>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default FeaturedEvents;
+
