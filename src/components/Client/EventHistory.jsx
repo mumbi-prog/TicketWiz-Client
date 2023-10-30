@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa';
+import './LoaderStyling.css';
 
 function formatDate(dateString) {
     const date = new Date(dateString);
@@ -29,6 +30,18 @@ function EventHistory() {
         console.error('Error fetching event history:', error);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <section className="dots-container mt-[15%]">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </section>
+    );
+  }
 
   return (
     <div>
