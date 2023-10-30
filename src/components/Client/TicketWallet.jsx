@@ -30,10 +30,30 @@ function TicketWallet() {
   }
 
   return (
-    <div>
-        <h1>TicketWallet</h1>
+    <div className="ticket-wallet">
+      <h2>Ticket Wallet</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Event Category</th>
+            <th>Ticket Type</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ticketWallet.map((ticket, index) => (
+            <tr key={index}>
+              <td>{ticket.event_name}</td>
+              <td>{ticket.event_category}</td>
+              <td>{ticket.ticket_type}</td>
+              <td>{ticket.quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+  );
 }
 
-export default TicketWallet
+export default TicketWallet;
