@@ -44,10 +44,35 @@ function EventHistory() {
   }
 
   return (
-    <div>
-        <h1>EventHistory</h1>
+    <div className="event-history">
+      <h2>View Past and Upcoming Events You've Booked</h2>
+      {eventHistory.map((event) => (
+        <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
+          <div className="event-img">
+            <img src={event.image_url} alt={event.title} className="h-[150px] w-[280px] object-cover rounded-t-lg" />
+          </div>
+          <div className="event-selected-details flex p-5">
+            <div className="event-date">
+              <p>{formatDate(event.date)}</p>
+            </div>
+            <div className="event-venue pl-6">
+              <h3 className="event-title font-sans mt-[0] text-lg font-bold uppercase text-black ml-[2px]">
+                {event.title}
+              </h3>
+              <div className="venue1 flex items-center">
+                <p className="text-black text-md mr-[5px] mt-[5px]">
+                  <FaLocationDot className="location-icon1" />
+                </p>
+                <p className="local1 text-sm mt-[5px]">
+                  {event.venue_name}, {event.event_location}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default EventHistory
+export default EventHistory;
