@@ -8,6 +8,7 @@ import Payment from './Payment';
 import './Payment.css';
 import {MdClose} from 'react-icons/md';
 import Navbar from '../LandingPage/Navbar';
+import "../Client/LoaderStyling.css";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -46,7 +47,15 @@ function EventDetails() {
   }, [eventId]);
 
   if (!event) {
-    return <div>Loading event details...</div>;
+    return (
+      <section className="dots-container mt-[15%]">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </section>
+    );
   }
 
  
