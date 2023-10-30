@@ -6,7 +6,7 @@ function Profile() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/customer_profile')
+    fetch('/me')
       .then((response) => response.json())
       .then((data) => {
         setCustomerData(data);
