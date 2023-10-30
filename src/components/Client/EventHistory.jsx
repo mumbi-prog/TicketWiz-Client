@@ -18,6 +18,18 @@ function EventHistory() {
   const [eventHistory, setEventHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    fetch('http://127.0.0.1:3000/event_history')
+      .then((response) => response.json())
+      .then((data) => {
+        setEventHistory(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching event history:', error);
+      });
+  }, []);
+
   return (
     <div>
         <h1>EventHistory</h1>
