@@ -120,7 +120,7 @@ const SignUp = () => {
                     Phone Number
                   </label>
                   <input
-                    placeholder="Phone Number" type="text" id="phone_number" name="phone_number"
+                    placeholder="2547********" type="text" id="phone_number" name="phone_number"
                     className="mt-1 p-2 w-full rounded-md bg-white focus:outline-none" required value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />

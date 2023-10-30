@@ -116,7 +116,7 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="mb-2">
-                  <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="2547********" className="block text-sm font-medium text-gray-700">
                     Phone Number
                   </label>
                   <input
