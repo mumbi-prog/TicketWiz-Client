@@ -9,8 +9,9 @@ import HomePage from '../Pages./Home';
 // import OrganizerDashboard from "../components/Organizer/Dashboard";
 // import CustomerDashboard from "../components/Client/Dashboard";
 // import ProfilePage from "../components/Client/Profile";
-import OrganizerProfile from "../components/Organizer/OrganizerProfile";
+// import OrganizerProfile from "../components/Organizer/OrganizerProfile";
 import EventHistory from "../components/Client/EventHistory";
+import CreateEvent from "../components/Organizer/CreateEvent";
 
 const AllRoutes = () => {
   // const [ setUserRole] = useState(""); 
@@ -21,7 +22,7 @@ const AllRoutes = () => {
       <Route path="/customerlogin" element={<CustomerLoginPage/>} />
       <Route path="/organiserlogin" element={<LoginPage />} />
       <Route path="/organisersignup" element={<OrganizerSignupPage />} />
-      <Route path="/organizerdashboard" element={<OrganizerProfile />} />
+      <Route path="/organizerdashboard" element={<CreateEvent />} />
       <Route path="/customerdashboard" element={<EventHistory/>} />
      
     </Routes>

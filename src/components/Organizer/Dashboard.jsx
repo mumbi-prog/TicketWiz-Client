@@ -209,7 +209,7 @@ function Dashboard() {
       available_tickets_count: updatedEventTicketCount,
     };
 
-    fetch(`http://localhost:3000/events/${eventToUpdate.id}`, {
+    fetch(`/events/${eventToUpdate.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
