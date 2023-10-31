@@ -1,6 +1,6 @@
 import '../Client/LoaderStyling.css'
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api/Api';
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
@@ -8,7 +8,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/meOrg', { withCredentials: true });
+        const response = await api.get('/meOrg');
 
         if (response.status === 200) { 
           setUserData(response.data);

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import logo from './../../images/logo.png';
 import { PiEyeBold, PiEyeClosed} from 'react-icons/pi';
 import './Login.css'
+import api from "../api/Api";
 
 const OrganiserLogin = ({ setUserRole }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,9 +23,7 @@ const OrganiserLogin = ({ setUserRole }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/loginOrg", formData, {
-      withCredentials: true,
-    });
+      const response = await api.post("/loginOrg", formData, );
       if (response.status === 200) {
         const data = response?.data;
         setSuccessMsg("Login successful!");

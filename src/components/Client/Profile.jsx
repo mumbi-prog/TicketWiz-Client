@@ -8,7 +8,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/me', { withCredentials: true });
+        const response = await axios.get('/me');
 
         if (response.status === 201) { 
           setUserData(response.data);

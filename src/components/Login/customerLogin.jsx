@@ -22,9 +22,7 @@ const LoginPage = ({ setUserRole }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", formData, {
-      withCredentials: true,
-    });
+      const response = await axios.post("/login", formData);
       if (response.status === 200) {
         const data = response?.data;
         setSuccessMsg("Login successful!");
