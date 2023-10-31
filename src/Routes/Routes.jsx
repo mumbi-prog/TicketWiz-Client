@@ -10,7 +10,7 @@ import HomePage from '../Pages./Home';
 // import CustomerDashboard from "../components/Client/Dashboard";
 // import ProfilePage from "../components/Client/Profile";
 import OrganizerProfile from "../components/Organizer/OrganizerProfile";
-import TicketWallet from "../components/Client/TicketWallet";
+import EventHistory from "../components/Client/EventHistory";
 
 const AllRoutes = () => {
   // const [ setUserRole] = useState(""); 
@@ -22,7 +22,7 @@ const AllRoutes = () => {
       <Route path="/organiserlogin" element={<LoginPage />} />
       <Route path="/organisersignup" element={<OrganizerSignupPage />} />
       <Route path="/organizerdashboard" element={<OrganizerProfile />} />
-      <Route path="/customerdashboard" element={<TicketWallet/>} />
+      <Route path="/customerdashboard" element={<EventHistory/>} />
      
     </Routes>
   );
