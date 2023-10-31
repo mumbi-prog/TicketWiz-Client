@@ -7,7 +7,8 @@ import CustomerSignupPage from '../components/Login/signup';
 import CustomerLoginPage from "../components/Login/customerLogin";
 import HomePage from '../Pages./Home';
 import OrganizerDashboard from "../components/Organizer/Dashboard";
-import CustomerDashboard from "../components/Client/Dashboard";
+// import CustomerDashboard from "../components/Client/Dashboard";
+import ProfilePage from "../components/Client/Profile";
 
 const AllRoutes = () => {
   const [ setUserRole] = useState(""); 
@@ -19,7 +20,7 @@ const AllRoutes = () => {
       <Route path="/organiserlogin" element={<LoginPage setUserRole={setUserRole} />} />
       <Route path="/organisersignup" element={<OrganizerSignupPage />} />
       <Route path="/organizerdashboard" element={<OrganizerDashboard />} />
-      <Route path="/customerdashboard" element={<CustomerDashboard />} />
+      <Route path="/customerdashboard" element={<ProfilePage />} />
      
     </Routes>
   );

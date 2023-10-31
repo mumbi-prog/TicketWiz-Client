@@ -48,7 +48,8 @@ const SignUp = () => {
           },
         });
 
-        if (response.ok) {
+        if (response.status === 201) {
+          document.cookie = `sessionID=${response.data.sessionID}`;
           navigate("/customerlogin");
         } else {
           const errorResponse = await response.json();

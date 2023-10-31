@@ -24,4 +24,3 @@ function MainOrgApp() {
 }
 
 export default MainOrgApp
-
