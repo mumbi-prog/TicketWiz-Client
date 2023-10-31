@@ -5,7 +5,7 @@ import logo from './../../images/logo.png';
 import { PiEyeBold, PiEyeClosed} from 'react-icons/pi';
 import './Login.css'
 
-const LoginPage = ({ setUserRole }) => {
+const OrganiserLogin = ({ setUserRole }) => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -50,14 +50,14 @@ const LoginPage = ({ setUserRole }) => {
       <div className="signup-container flex justify-center items-center w-[1000px] h-[90vh] p-20 bg-gradient-to-tr from-[rgba(255,255,255,0.1)] via-transparent via-transparent to-[rgba(255,255,255,0)] backdrop-blur-10xl border-1 border-[rgba(255,255,255,0.18)] shadow-md rounded-lg">
           
           <div className="w-80 h-[80%] mr-20 flex flex-col items-center mt-[200px]">
-            <Link to={"/home"} className="app-name font-bold text-3xl text-text-color">TicketWiz</Link>
+            <Link to={"/"} className="app-name font-bold text-3xl text-text-color">TicketWiz</Link>
             <img src={logo} alt="" className="w-[550px]"/>
           </div>
           <div className="w-96 p-8  ml-20 mt-[5px] w-[500px]">
               <h5 className="text-5xl font-medium mb-4 text-center text-black">
                 Log In
               </h5>
-              <p className="text-center text-black mb-[10px]">Not member? <Link to={"/organisersignup"} className="text-text-color font-medium underline">Sign up</Link> instead</p>
+              <p className="text-center text-black mb-[10px]">Not a member? <Link to={"/organisersignup"} className="text-text-color font-medium underline">Sign up</Link> instead</p>
 
               <form onSubmit={handleSubmit}>
                   <div className="mb-2">
@@ -136,4 +136,4 @@ const LoginPage = ({ setUserRole }) => {
         );
       };
 
-export default LoginPage;
+export default OrganiserLogin ;
