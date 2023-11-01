@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Modal from './Modal';
+import Modal from './UpdateModal';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import { BsTrash3 } from 'react-icons/bs'
 import { FaLocationDot } from 'react-icons/fa6';
 import api from '../api/Api';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -23,6 +24,9 @@ function Dashboard() {
   const [error, setError] = useState(null);
 
   const [eventCount, setEventCount] = useState(0);
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [eventToDelete, setEventToDelete] = useState(null);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [eventToUpdate, setEventToUpdate] = useState(null);
@@ -73,20 +77,30 @@ function Dashboard() {
     setEventToUpdate(null);
   };
 
-  const handleDeleteEvent = (event) => {
-    if (window.confirm('Are you sure you want to delete this event?')) {
-      api
-        .delete(`/events/${event.id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Cannot delete');
-          }
-          setOrganizerData((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
-        })
-        .catch((err) => {
-          setError(err);
-        });
-    }
+  const openDeleteModal = (event) => {
+    setIsDeleteModalOpen(true);
+    setEventToDelete(event);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+    setEventToDelete(null);
+  };
+
+  const confirmDeleteEvent = (event) => {
+    closeDeleteModal();
+
+    api
+      .delete(`/events/${event.id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Cannot delete');
+        }
+        setOrganizerData((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
+      })
+      .catch((err) => {
+        setError(err);
+      });
   };
 
   if (loading) {
@@ -137,8 +151,6 @@ function Dashboard() {
       });
   };
 
- 
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -148,11 +160,10 @@ function Dashboard() {
       <div className="dashboard-container">
         <h2 className="dashboard-title">Organizer Dashboard</h2>
 
-        {/* Display the event count */}
-       <div className="stats-container bg-gray-500 px-[30px] py-[30px] font-bold inline-block mt-[20px] text-lg rounded-md transition-transform transform hover:scale-105 hover:bg-acc-color">
-           <p className="event-count font-bold">Total Events</p>
-           <p className='font-bold'>{eventCount}</p>
-       </div>
+        <div className="stats-container bg-gray-500 px-[30px] py-[30px] font-bold inline-block mt-[20px] text-lg rounded-md transition-transform transform hover:scale-105 hover:bg-acc-color">
+          <p className="event-count font-bold">Total Events</p>
+          <p className='font-bold'>{eventCount}</p>
+        </div>
 
         <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-12">
           {organizerData.map((event) => (
@@ -177,7 +188,7 @@ function Dashboard() {
                     </p>
                   </div>
                   <div className="event-actions flex mt-4">
-                    <BsTrash3 onClick={() => handleDeleteEvent(event)} className="cursor-pointer mr-4" />
+                    <BsTrash3 onClick={() => openDeleteModal(event)} className="cursor-pointer mr-4" />
                     <BiSolidEditAlt onClick={() => openUpdateModal(event)} className="cursor-pointer" />
                   </div>
                 </div>
@@ -210,8 +221,16 @@ function Dashboard() {
           </div>
         </Modal>
       )}
+
+      {isDeleteModalOpen && (
+        <DeleteConfirmationModal 
+          onCancel={closeDeleteModal}
+          onConfirm={() => confirmDeleteEvent(eventToDelete)}
+        />
+      )}
     </div>
   );
 }
 
 export default Dashboard;
+
