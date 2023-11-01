@@ -89,19 +89,22 @@ function Dashboard() {
 
   const confirmDeleteEvent = (event) => {
     closeDeleteModal();
-
+  
     api
       .delete(`/events/${event.id}`)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Cannot delete');
+        if (response.status === 204) {
+          setOrganizerData((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
+          setEventCount((prevCount) => prevCount - 1);
+        } else {
+          console.error('Failed to delete event');
         }
-        setOrganizerData((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
       })
       .catch((err) => {
-        setError(err);
+        console.error('Error while deleting event:', err);
       });
   };
+  
 
   if (loading) {
     return (
