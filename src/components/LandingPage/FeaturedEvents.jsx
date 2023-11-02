@@ -36,7 +36,7 @@ const FeaturedEvents = () => {
         Featured Events
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {featuredEvents.map((event, index) => (
+        {featuredEvents?.map((event, index) => (
            <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
            <div className="event-img">
              <img src={event.image_url} alt={event.title} className="h-[150px] w-[280px] object-cover rounded-t-lg" />
@@ -76,4 +76,3 @@ const FeaturedEvents = () => {
 };
 
 export default FeaturedEvents;
-

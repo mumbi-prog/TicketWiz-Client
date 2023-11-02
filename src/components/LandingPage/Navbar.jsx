@@ -43,21 +43,21 @@ const Navbar = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <div className="text-center mt-5">
             <div className="mb-2">
-              <RouterLink to="/customerlogin" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/customerlogin" className="text-blue-500 hover:text-blue-700" onClick={closeModal}>
                 <button className="focus:outline-none text-left w-full">
                   Login as User
                 </button>
               </RouterLink>
             </div>
             <div className="mb-2">
-              <RouterLink to="/login" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/login" className="text-blue-500 hover:text-blue-700" onClick={closeModal}>
                 <button className="focus:outline-none text-left w-full">
                   Login as Organizer
                 </button>
               </RouterLink>
             </div>
             <div>
-              <RouterLink to="/customersignup" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/customersignup" className="text-blue-500 hover:text-blue-700" onClick={closeModal}>
                 <button className="focus:outline-none text-left w-full">
                   Sign Up as User
                 </button>
@@ -65,7 +65,7 @@ const Navbar = () => {
             </div>
             
             <div>
-              <RouterLink to="/organisersignup" className="text-blue-500 hover:text-blue-700">
+              <RouterLink to="/organisersignup" className="text-blue-500 hover:text-blue-700" onClick={closeModal}>
                 <button className="focus:outline-none text-left w-full">
                   Sign Up as Organizer
                 </button>

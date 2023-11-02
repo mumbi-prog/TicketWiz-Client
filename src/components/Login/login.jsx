@@ -37,7 +37,7 @@ import axios from 'axios';
         setSuccessMsg("Login successful!");
          
     
-        navigate("/mainorgapp");
+        navigate("/mainorgapp/dashboard");
       } else {
       
         setErrMsg("An error occurred while logging in");

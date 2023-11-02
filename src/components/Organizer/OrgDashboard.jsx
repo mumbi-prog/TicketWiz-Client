@@ -414,7 +414,8 @@ const Greetings = ({ username }) => {
     </div>
   );
 };
-const Dashboard = () => {
+
+const OrgDashboard = () => {
   const [totalEvents, setTotalEvents] = useState(14);
   const [totalTicketsSold, setTotalTicketsSold] = useState(223);
   const [totalRevenue, setTotalRevenue] = useState(61990);
@@ -540,4 +541,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default OrgDashboard;

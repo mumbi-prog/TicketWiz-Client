@@ -1,7 +1,7 @@
 import React from 'react'
 import OrganiserSidebar from './OrganiserSidebar';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Dashboard from './Dashboard';
+import Dashboard from './OrgDashboard';
 import CreateEvent from './CreateEvent';
 import TicketSales from './Ticketsales';
 import OrganizerProfile from './OrganizerProfile';

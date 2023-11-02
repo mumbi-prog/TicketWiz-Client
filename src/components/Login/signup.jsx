@@ -20,16 +20,18 @@ const SignUp = () => {
     try {
       const isPasswordValid = password === confirmPassword;
       const isPhoneNumberValid = /^254\d{9}$/.test(phoneNumber);
-      const isAgeValid = age >= 18 && age <= 65;
+      // const isAgeValid = Number(age)>= 18 && Number(age)<= 65;
       const isEmailValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
       if (!isPasswordValid) {
         setErrMsg("Password Mismatch!");
       } else if (!isPhoneNumberValid) {
         setErrMsg("Invalid phone number format. It should start with 254 and be 12 digits long.");
-      } else if (!isAgeValid) {
-        setErrMsg("Age must be between 18 and 65.");
-      } else if (!isEmailValid) {
+      } 
+      // else if (!isAgeValid) {
+      //   setErrMsg("Age must be between 18 and 65.");
+      // } 
+      else if (!isEmailValid) {
         setErrMsg("Invalid email format.");
       } else {
         const response = await fetch("http://localhost:3000/signup", {
@@ -47,24 +49,22 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
         });
+        console.log({response})
 
         if (response.ok) {
           navigate("/customerlogin");
         } else {
           const errorResponse = await response.json();
           setErrMsg(errorResponse.error || "Couldn't create the account. Try again.");
-          setTimeout(() => {
-            setErrMsg("");
-          }, 3000);
+          
         }
       }
     } catch (err) {
-      setErrMsg("Try again.");
-      setTimeout(() => {
-        setErrMsg("");
-      }, 3000);
+      setErrMsg(err);
+      
     }
   };
+  console.log({errMsg})
 
   return (
     <>

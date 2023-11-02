@@ -20,37 +20,27 @@ import axios from 'axios';
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
-    // alert("hello",email,password)
-    try {
-      const response = await axios.post('http://localhost:3000/login', formData);
+    const response = await axios.post('http://localhost:3000/login', formData)
+    .catch(error => {
+        setErrMsg(error);
+    });
+  
       console.log(response,"++++++++===>")
 
-      if (response) {
+      if (response && response.status === 200) {
         const data = response?.data;
         const receivedUsername = data.username;
         localStorage.setItem("username", receivedUsername);
         setSuccessMsg("Login successful!");
         setUserRole("customer"); 
     
-        navigate("/mainclientapp");
-      } else {
-       
-        setErrMsg("An error occurred while logging in");
-        setTimeout(() => {
-          setErrMsg("");
-        }, 3000); 
+        navigate("/mainclientapp/dashboard");
       }
-    } catch (error) {
-     
-      setErrMsg("An error occurred while logging in");
-      setTimeout(() => {
-        setErrMsg("");
-      }, 3000); 
-    }
   };
 
   return (
@@ -76,7 +66,7 @@ import axios from 'axios';
           <h2 className="text-1xl font-bold mb-4 text-center text-black">
             Don't have an account?{" "}
             <Link to="/customersignup">
-              <span className="font-bold mb-4 text-black underline">Signup</span>
+              <span className="font-bold mb-4 text-black underline">Sign up</span>
             </Link>{" "}
             instead.
           </h2>

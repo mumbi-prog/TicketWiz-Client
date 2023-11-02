@@ -6,7 +6,7 @@ import LoginPage from "../components/Login/login";
 import CustomerLoginPage from "../components/Login/customerLogin";
 import OrganizerSignupPage from "../components/Login/organiserSignup";
 import CustomerSignupPage from '../components/Login/signup';
-import OrganizerDashboard from "../components/Organizer/Dashboard";
+import OrganizerDashboard from "../components/Organizer/OrgDashboard";
 import CustomerDashboard from "../components/Client/Dashboard";
 import EventHistory from "../components/Client/EventHistory";
 import MainClientApp from "../components/Client/MainClientApp";
@@ -23,10 +23,10 @@ import CreateEvent from "../components/Organizer/CreateEvent";
 
 
 const AllRoutes = () => {
-  const [ setUserRole] = useState(""); 
+  const [ userRole,setUserRole] = useState(""); 
   return (
     <Routes>
-      <Route path="/customerLogin" element={<CustomerLoginPage />} />
+      <Route path="/customerlogin" element={<CustomerLoginPage setUserRole={setUserRole}/>} />
       <Route path="/customersignup" element={<CustomerSignupPage />} />
       <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
       <Route path="/organizersignup" element={<OrganizerSignupPage />} />
