@@ -1,29 +1,47 @@
+import '../Client/LoaderStyling.css'
 import React, { useState, useEffect } from 'react';
+import api from '../api/Api';
 
-const WelCust = () => {
-//   const location = useLocation();
-  const [firstName, setFirstName] = useState('');
+const WelOrg = () => {
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Fetch customer data from the /me route
-    fetch('http://localhost:3000/me')
-      .then((response) => response.json())
-      .then((data) => {
-        if (data && data.first_name) {
-          setFirstName(data.first_name);
+    const fetchUserData = async () => {
+      try {
+        const response = await api.get('/me');
+
+        if (response.status === 200) { 
+          setUserData(response.data);
+        } else {
+          console.error('Request failed with status:', response.status);
         }
-      })
-      .catch((error) => console.error(error));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserData();
   }, []);
 
   return (
-    <div className="flex h-screen justify-center items-center">
-      <div className="text-center">
-        <h2 className="text-4xl font-bold mb-4 text-black">Welcome, {firstName}!</h2>
-        <p>You have successfully logged in.</p>
-      </div>
+    <div className="profile-container">
+      {userData ? (
+        <div>
+              <p id="first_name" className="user-data text-acc-blue text-3xl font-medium mb-[10px]">
+                Welcome,  {userData.first_name}
+              </p>
+        </div>
+      ) : (
+        <section className="dots-container mt-[15%]">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </section>
+      )}
     </div>
   );
 };
 
-export default WelCust;
+export default WelOrg;

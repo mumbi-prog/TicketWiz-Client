@@ -33,7 +33,7 @@ function TicketWallet() {
   const totalTickets = ticketWallet.reduce((total, ticket) => total + ticket.quantity, 0);
 
   return (
-    <div className="ticket-wallet m-[20px] p-[20px] font-dm-sans justify-center items-center h-screen">
+    <div className="ticket-wallet mx-[20px] font-sans my-[30px]">
       <h2 className='text-2xl font-bold mb-[10px] text-left mx-[50px]'>My Ticket Wallet</h2>
 
       <div className="ticket-wallet-table-container rounded-md bg-gray-100 py-[20px] px-[50px] mx-[50px] inline-block mt-[25px]">
