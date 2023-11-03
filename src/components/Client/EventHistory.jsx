@@ -46,13 +46,13 @@ function EventHistory({ isOpen }) {
   const gridColumns = isOpen ? 'grid-cols-3' : 'grid-cols-4'; 
 
   return (
-    <section className="event mb-[30px]">
-      <div className="event-history-container font-sans flex flex-col items-center ">
-        <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px] items-left">
-          All events
+    <section className="event mx-[20px] font-sans my-[30px]">
+      <div className="event-history-container font-sans flex flex-col ">
+        <h2 className="font-sans text-2xl font-medium mb-[15px]">
+          View Past and Upcoming Events You've Booked
         </h2>
 
-        <div className={`event-history grid ${gridColumns} sm:grid-cols-2 md:grid-cols-3 gap-8 my-[50px]`}>
+        <div className={`event-history grid ${gridColumns} sm:grid-cols-2 md:grid-cols-3 gap-8 my-[10px]`}>
           {eventHistory.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
               <div className="event-img">
