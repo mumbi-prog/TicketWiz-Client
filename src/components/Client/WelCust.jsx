@@ -1,16 +1,16 @@
-import '../Client/LoaderStyling.css'
 import React, { useState, useEffect } from 'react';
-import api from '../api/Api';
+import axios from 'axios';
+import './LoaderStyling.css'
 
-const WelOrg = () => {
+const WelCust = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await api.get('/me');
+        const response = await axios.get('/me');
 
-        if (response.status === 200) { 
+        if (response.status === 201) { 
           setUserData(response.data);
         } else {
           console.error('Request failed with status:', response.status);
@@ -27,8 +27,8 @@ const WelOrg = () => {
     <div className="profile-container">
       {userData ? (
         <div>
-              <p id="first_name" className="user-data text-acc-blue text-3xl font-medium mb-[10px]">
-                Welcome,  {userData.first_name}
+             <p id="first_name" className="user-data text-acc-blue text-3xl font-medium mb-[10px]">
+                Welcome, {userData.first_name}
               </p>
         </div>
       ) : (
@@ -44,4 +44,4 @@ const WelOrg = () => {
   );
 };
 
-export default WelOrg;
+export default WelCust;

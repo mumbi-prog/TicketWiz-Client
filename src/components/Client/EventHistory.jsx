@@ -15,21 +15,22 @@ function formatDate(dateString) {
   );
 }
 
-function EventHistory({ isOpen }) {
-  const [eventHistory, setEventHistory] = useState([]);
-  const [loading, setLoading] = useState(true);
+  function EventHistory({ isOpen, onTotalEvents }) {
+    const [eventHistory, setEventHistory] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    api.get('/event_history')
-      .then((response) => response.data)
-      .then((data) => {
-        setEventHistory(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching event history:', error);
-      });
-  }, []);
+    useEffect(() => {
+      api.get('/event_history')
+        .then((response) => response.data)
+        .then((data) => {
+          setEventHistory(data);
+          setLoading(false);
+          onTotalEvents(data.length);
+        })
+        .catch((error) => {
+          console.error('Error fetching event history:', error);
+        });
+    }, [onTotalEvents]);
 
   if (loading) {
     return (
