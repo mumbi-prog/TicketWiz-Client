@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import './LoaderStyling.css';
 import api from '../api/Api';
+import CustomerLogout from './CustomerLogout';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -81,6 +82,7 @@ function formatDate(dateString) {
           ))}
         </div>
       </div>
+      <CustomerLogout />
     </section>
   );
 }
