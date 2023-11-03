@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FaUserAlt, FaBars, FaHistory } from 'react-icons/fa';
-import { RiDashboardFill } from 'react-icons/ri'
+import { RiDashboardFill, RiLogoutCircleRLine } from 'react-icons/ri';
 import { BsCalendar2EventFill, BsFillTicketPerforatedFill } from 'react-icons/bs'
 import { Link } from 'react-scroll';
 import logo from './../../images/logo.png';
 import './MainClientApp.css';
+import api from '../api/Api';
 
 function Sidebar({ children, setSelectedOption }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,22 @@ function Sidebar({ children, setSelectedOption }) {
     { id: 'bookTicket', name: 'BookTicket', icon: <BsCalendar2EventFill /> },
     { id: 'eventHistory', name: 'Event History', icon: <FaHistory/>},
     { id: 'ticketWallet', name:'Ticket Wallet', icon: <BsFillTicketPerforatedFill/>},
-    { id: 'customerProfile', name:'Profile', icon: <FaUserAlt/>}
+    { id: 'customerProfile', name:'Profile', icon: <FaUserAlt/>},
+    { id: 'customerLogout', name: 'Logout', icon: <RiLogoutCircleRLine /> },
   ];
+
+  const handleLogout = async () => {
+    try {
+      const response = await api.delete('/logout');
+      if (response.status === 204) {
+        window.location.href = '/customerlogin'; 
+      } else {
+        console.error('Failed to log out customer');
+      }
+    } catch (error) {
+      console.error('Error while logging out customer:', error);
+    }
+  }
 
   return (
 <div className='main-container font-dm-sans h-full'>
@@ -30,13 +45,19 @@ function Sidebar({ children, setSelectedOption }) {
                 </div>
             </div>
         {navItem.map((item) => (
-          <Link
-            key={item.id} to={item.id} 
-            className='link' onClick={() => setSelectedOption(item.id)} activeClassName="active"
-          >
-            <div style={{marginLeft: isOpen ? "20px" : "-11px"}} className="icon">{item.icon}</div>
-            <div style={{display: isOpen ? "block" : "none"}} className="link-text">{item.name}</div>
-          </Link>
+           <Link  key={item.id} to={item.id} className='link'
+           onClick={() => {
+             if (item.id === 'customerLogout') {
+               handleLogout();
+             } else {
+               setSelectedOption(item.id);
+             }
+           }}
+           activeClassName="active"
+         >
+           <div style={{ marginLeft: isOpen ? "20px" : "-11px" }} className="icon">{item.icon}</div>
+           <div style={{ display: isOpen ? "block" : "none" }} className="link-text">{item.name}</div>
+         </Link>
         ))}
       </div>
       <main style={{ marginLeft: isOpen ? '230px' : '50px' }}>{children}</main>
