@@ -24,10 +24,10 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <div className="profile-container pl-[30%] mt-[80px]">
+    <div className="profile-container h-screen flex flex-column justify-center relative left-[320px]">
       {userData ? (
         <div>
-          <h1 className="profile-head mt-[50px] uppercase px-[50px] py-[7px] font-bold bg-acc-blue text-text-color text-lg w-[400px] text-center">
+          <h1 className="profile-head mt-[50px] uppercase px-[50px] py-[10px] font-bold bg-acc-blue text-text-color text-lg w-[400px] text-center">
             Contact information
           </h1>
           <form className="profile-form flex flex-col items-left mt-[20px]">
@@ -35,7 +35,7 @@ const ProfilePage = () => {
               <label htmlFor="first_name" className="label font-dm-serif-text font-medium">
                 First Name:
               </label>
-              <p id="first_name" className="user-data rounded-md px-[20px] py-[5px] my-[5px] bg-payment-modal-color w-[400px]">
+              <p id="first_name" className="user-data rounded-md px-[20px] py-[8px] my-[5px] bg-payment-modal-color w-[400px]">
                 {userData.first_name}
               </p>
             </div>
@@ -43,7 +43,7 @@ const ProfilePage = () => {
               <label htmlFor="last_name" className="label font-dm-serif-text font-medium">
                 Last Name:
               </label>
-              <p id="last_name" className="user-data rounded-md px-[20px] py-[5px] my-[5px] bg-payment-modal-color w-[400px]">
+              <p id="last_name" className="user-data rounded-md px-[20px] py-[8px] my-[5px] bg-payment-modal-color w-[400px]">
                 {userData.last_name}
               </p>
             </div>
@@ -51,7 +51,7 @@ const ProfilePage = () => {
               <label htmlFor="email" className="label font-dm-serif-text font-medium">
                 Email:
               </label>
-              <p id="email" className="user-data rounded-md px-[20px] py-[5px] my-[5px] bg-payment-modal-color w-[400px]">
+              <p id="email" className="user-data rounded-md px-[20px] py-[8px] my-[5px] bg-payment-modal-color w-[400px]">
                 {userData.email}
               </p>
             </div>
@@ -59,7 +59,7 @@ const ProfilePage = () => {
               <label htmlFor="phone_number" className="label font-dm-serif-text font-medium">
                 Phone Number:
               </label>
-              <p id="age" className="user-data rounded-md px-[20px] py-[5px] my-[5px] bg-payment-modal-color w-[400px]">
+              <p id="age" className="user-data rounded-md px-[20px] py-[8px] my-[5px] bg-payment-modal-color w-[400px]">
                 +{userData.phone_number}
               </p>
             </div>

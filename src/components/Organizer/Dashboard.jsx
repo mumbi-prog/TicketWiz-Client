@@ -5,6 +5,7 @@ import api from '../api/Api';
 import { BiSolidEditAlt } from 'react-icons/bi';
 import { BsTrash3 } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
+import WelOrg from './WelOrg';
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -21,7 +22,7 @@ function formatDate(dateString) {
 function Dashboard() {
   const [organizerData, setOrganizerData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [ setError ] = useState(null);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [eventToUpdate, setEventToUpdate] = useState(null);
@@ -113,11 +114,19 @@ function Dashboard() {
   }
 
   return (
-    <div className="organizer-dashboard m-[20px]">
+    <div className="organizer-dashboard mx-[20px] font-sans my-[30px]">
       <div className="dashboard-container">
-        <h2 className="dashboard-title">Organizer Dashboard</h2>
+        <WelOrg />
+        <h2 className="dashboard-title text-2xl font-medium mb-[15px]">Organizer Dashboard</h2>
 
-        <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 my-12">
+        <div className="event-stats bg-gray-400 inline-block px-[50px] py-[30px] rounded-md hover:bg-acc-blue">
+          <p className='font-bold text-lg'>Total Events:</p>
+          <p className='font-bold text-lg'>{organizerData.length}</p>
+        </div>
+         
+
+          <h2 className='text-2xl font-medium my-[15px]'>My Events</h2>
+        <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-[10px]">
           {organizerData.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md">
               <div className="event-img">

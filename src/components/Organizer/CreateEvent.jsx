@@ -79,14 +79,14 @@ import api from '../api/Api';
         };
 
         return (
-            <div className="mx-[50px] w-[1030px]">
-                <h2 className="font-sans text-head-color font-bold text-4xl pt-[20px] mb-[20px]">
+            <div className="w-[830px]  mx-[20px] font-sans my-[30px]">
+                <h2 className="font-sans text-2xl font-medium mb-[15px]">
                      Create events
                 </h2>
                 {successMessage && <p className="text-green-500">{successMessage}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="top-part flex gap-[30px]">
-                            <div className="basic-event-deets w-[500px] flex flex-col gap-[10px]">
+                            <div className="basic-event-deets w-[400px] flex flex-col gap-[10px]">
                                 <div className="e-title">
                                     <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="title">
                                         Event Title:
@@ -131,15 +131,15 @@ import api from '../api/Api';
                                         name="image_url"
                                         value={eventDetails.image_url}
                                         onChange={handleInputChange}
-                                        className="e-poster p-2 w-[500px] border rounded-md bg-gray-200"
+                                        className="e-poster p-2 w-full border rounded-md bg-gray-200"
                                         required
                                     />
                                     {errors.image_url && <p className="text-red-500">{errors.image_url}</p>}
                                 </div>
                             </div>
 
-                            <div className="local-and-time">
-                                    <div className="mb-2">
+                            <div className="local-and-time w-[400px] flex flex-col gap-[10px]">
+                                    <div className="mb-1">
                                         <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="venue_name">
                                             Event Venue:
                                         </label>
@@ -148,12 +148,12 @@ import api from '../api/Api';
                                             name="venue_name"
                                             value={eventDetails.venue_name}
                                             onChange={handleInputChange}
-                                            className="e-venue p-2 w-[500px] border rounded-md bg-gray-200"
+                                            className="e-venue p-2 w-full border rounded-md bg-gray-200"
                                             required
                                         />
                                         {errors.venue_name && <p className="text-red-500">{errors.venue_name}</p>}
                                     </div>
-                                    <div className="mb-4">
+                                    <div className="mb-4 mt-[-5px]">
                                         <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="event_location">
                                             Event Location:
                                         </label>
@@ -162,13 +162,13 @@ import api from '../api/Api';
                                             name="event_location"
                                             value={eventDetails.event_location}
                                             onChange={handleInputChange}
-                                            className="e-location p-2 w-[500px] border rounded-md bg-gray-200"
+                                            className="e-location p-2 w-full border rounded-md bg-gray-200"
                                             required
                                         />
                                         {errors.event_location && <p className="text-red-500">{errors.event_location}</p>}
                                     </div>
 
-                                    <div className="date-and-time flex gap-[25px]">
+                                    <div className="date-and-time flex gap-[22px]  mt-[-10px]">
                                             <div className="mb-4">
                                                 <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="date">
                                                     Date:
@@ -178,7 +178,7 @@ import api from '../api/Api';
                                                     name="date"
                                                     value={eventDetails.date}
                                                     onChange={handleInputChange}
-                                                    className="e-date p-2 w-[150px] border rounded-md bg-gray-200"
+                                                    className="e-date p-2 w-[118px] border rounded-md bg-gray-200"
                                                     required
                                                 />
                                                 {errors.date && <p className="text-red-500">{errors.date}</p>}
@@ -192,7 +192,7 @@ import api from '../api/Api';
                                                     name="start_time"
                                                     value={eventDetails.start_time}
                                                     onChange={handleInputChange}
-                                                    className="e-start-time p-2 w-[150px] border rounded-md bg-gray-200"
+                                                    className="e-start-time p-2 w-[118px] border rounded-md bg-gray-200"
                                                     required
                                                 />
                                                 {errors.start_time && <p className="text-red-500">{errors.start_time}</p>}
@@ -206,7 +206,7 @@ import api from '../api/Api';
                                                     name="end_time"
                                                     value={eventDetails.end_time}
                                                     onChange={handleInputChange}
-                                                    className="e-end-time p-2 w-[150px] border rounded-md bg-gray-200"
+                                                    className="e-end-time p-2 w-[118px] border rounded-md bg-gray-200"
                                                     required
                                                 />
                                                 {errors.end_time && <p className="text-red-500">{errors.end_time}</p>}
@@ -218,7 +218,7 @@ import api from '../api/Api';
                     </div>
                  
 
-                                    <div className="mb-4 w-[1030px]">
+                                    <div className="mb-4 w-[830px]">
                                         <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="description">
                                             Description:
                                         </label>
@@ -232,7 +232,7 @@ import api from '../api/Api';
                                         {errors.description && <p className="text-red-500">{errors.description}</p>}
                                     </div>
                 
-                                    <div className="ticket-specifics flex gap-[30px]">
+                                    <div className="ticket-specifics flex gap-[30px] w-[830px]">
                                             <div>
                                                 <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="available_tickets_count">
                                                     Price:
@@ -242,7 +242,7 @@ import api from '../api/Api';
                                                     name="price"
                                                     value={eventDetails.price}
                                                     onChange={handleInputChange}
-                                                    className="e.price p-2 w-[500px] border rounded-md bg-gray-200"
+                                                    className="e.price p-2 w-[400px] border rounded-md bg-gray-200"
                                                     required
                                                 />
                                                 {errors.price && <p className="text-red-500">{errors.price}</p>}
@@ -256,7 +256,7 @@ import api from '../api/Api';
                                                     name="available_tickets_count"
                                                     value={eventDetails.available_tickets_count}
                                                     onChange={handleInputChange}
-                                                    className="e.ticket-count p-2 w-[500px] border rounded-md bg-gray-200"
+                                                    className="e.ticket-count p-2 w-[400px] border rounded-md bg-gray-200"
                                                     required
                                                 />
                                                 {errors.available_tickets_count && <p className="text-red-500">{errors.available_tickets_count}</p>}

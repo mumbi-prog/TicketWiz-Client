@@ -1,26 +1,38 @@
-// import React from 'react'
-// import OrganiserSidebar from './OrganiserSidebar';
-// import {BrowserRouter, Route, Routes} from 'react-router-dom';
-// import Dashboard from './Dashboard';
-// import CreateEvent from './CreateEvent';
-// import TicketSales from './Ticketsales';
-// import OrganizerProfile from './OrganizerProfile';
-// import './../Client/MainClientApp.css';
+import React, { useState } from 'react';
+import OrganiserSidebar from './OrganiserSidebar';
+import Dashboard from './Dashboard';
+import CreateEvent from './CreateEvent';
+import TicketSales from './Ticketsales';
+import OrganizerProfile from './OrganizerProfile';
+import './../Client/MainClientApp.css';
 
-// function MainOrgApp() {
-//   return (
-//     <BrowserRouter>
-//         <OrganiserSidebar>
-//             <Routes>
-//                 {/* <Route path='/' element={<Dashboard/>}></Route> */}
-//                 <Route path='/dashboard'element={<Dashboard/>} ></Route>
-//                 <Route path='/create-event' element={<CreateEvent/>}></Route>
-//                 <Route path='/ticketsales' element={<TicketSales/>}></Route>
-//                 <Route path='/organiserprofile' element={<OrganizerProfile/>}></Route>
-//             </Routes>
-//         </OrganiserSidebar>
-//     </BrowserRouter>
-//   )
-// }
+function MainOrgApp() {
+  const [selectedOption, setSelectedOption] = useState('dashboard');
 
-// export default MainOrgApp
+  const renderContent = () => {
+    switch (selectedOption) {
+      case 'dashboard':
+        return <Dashboard />;
+      case 'createEvent':
+        return <CreateEvent />;
+      case 'ticketSales':
+        return <TicketSales />;
+      case 'organizerProfile':
+        return <OrganizerProfile />;
+      default:
+        return <Dashboard />;
+    }
+  };
+
+  return (
+    <div className="main-wrapper">
+      <OrganiserSidebar setSelectedOption={setSelectedOption} />
+      <div className="content-wrapper">
+        {renderContent()}
+      </div>
+    </div>
+  );
+}
+
+export default MainOrgApp;
+
