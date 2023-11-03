@@ -74,7 +74,7 @@ const SignUp = () => {
       <div className="bg-gradient-to-r from-blue-500 via-purple-700 to-purple-500 h-screen flex justify-center items-center">
         <div className="signup-container flex justify-center items-center w-[1000px] h-[90vh] p-20 bg-gradient-to-tr from-[rgba(255,255,255,0.1)] via-transparent via-transparent to-[rgba(255,255,255,0)] backdrop-blur-10xl border-1 border-[rgba(255,255,255,0.18)] shadow-md rounded-lg">
           <div className="w-80 h-[80%] mr-20 flex flex-col items-center mt-[200px]">
-            <Link to={"/home"} className="app-name font-bold text-3xl text-text-color">TicketWiz</Link>
+            <Link to={"/"} className="app-name font-bold text-3xl text-text-color">TicketWiz</Link>
             <img src={logo} alt="" className="w-[550px]"/>
           </div>
           <div className="w-96 p-8  ml-20 mt-[5px] w-[500px]">
