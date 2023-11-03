@@ -28,7 +28,7 @@ const OrganiserLogin = ({ setUserRole }) => {
         const data = response?.data;
         setSuccessMsg("Login successful!");
         localStorage.setItem("userID", data.id);
-        navigate("/orgdashboard");
+        navigate("/organiseraccount");
       } else {
         setErrMsg("An error occurred while logging in");
         setTimeout(() => {
