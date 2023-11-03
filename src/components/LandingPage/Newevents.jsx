@@ -1,11 +1,11 @@
 import React from 'react';
 import ticketimg from './../../images/ticket-pic.png';
-import "./landingpage.css";
+// import "./landingpage.css";
 import { Link } from 'react-router-dom';
 
 function Newevents() {
   return (
-    <section className="new-event bg-gray-300 mt-[20px] flex flex-row justify-between gap-40 font-sans relative h-[340px]">
+    <section className="new-event bg-gray-300 mt-[20px] flex flex-row justify-between gap-40 font-sans relative h-[340px] z-1">
       <div className="new-event-container w-full">
         <img src={ticketimg} alt="" className="event-image w-[470px] h-auto absolute top-[-35px] left-[80px]" />
       </div>

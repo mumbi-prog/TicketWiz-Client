@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const HeroSection = ({ children }) => {
   return (
     <div
-      className="hero-cover relative bg-cover bg-center text-white py-24 h-[509px]"
+      className="hero-cover relative bg-cover bg-center text-white pt-24 h-[84vh] mt-[0px] z-1"
       style={{
         backgroundImage: `url(${bkg1})`, 
       }}
@@ -28,7 +28,7 @@ const HeroSection = ({ children }) => {
             </Link>
           </div>
           <div className="bandimg ml-auto">
-            <img src={bkg3} alt="" className="w-[500px] h-auto mb-0 justify-between mt-[-87px]" />
+            <img src={bkg3} alt="" className="w-[500px] h-auto mb-0 justify-between mt-[-57px]" />
           </div>
       </div>
     </div>

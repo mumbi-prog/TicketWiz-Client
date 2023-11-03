@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gradient-color1 to-gradient-color2 p-[5px] pr-[30px]">
+    <nav className="bg-gradient-to-r from-gradient-color1 to-gradient-color2 p-[5px] pr-[30px] w-full top-0 z-20000">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="h-auto w-[120px] mr-2" />
@@ -45,18 +45,18 @@ const Navbar = () => {
             <div className="mb-2">
               <RouterLink to="/customerlogin" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
-                  Login as User
+                  Customer Login
                 </button>
               </RouterLink>
             </div>
             <div className="mb-2">
               <RouterLink to="/organiserlogin" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
-                  Login as Organizer
+                  Organiser Login
                 </button>
               </RouterLink>
             </div>
-            <div>
+            {/* <div>
               <RouterLink to="/customersignup" className="text-blue-500 hover:text-blue-700">
                 <button className="focus:outline-none text-left w-full">
                   Sign Up as User
@@ -70,7 +70,7 @@ const Navbar = () => {
                   Sign Up as Organizer
                 </button>
               </RouterLink>
-            </div>
+            </div> */}
           </div>
         </Modal>
       </div>
@@ -81,8 +81,8 @@ const Navbar = () => {
 function NavItem({ label, to, active, onClick }) {
   const linkClasses = `text-white ${
     active
-      ? "bg-text-color-opacity text-main-blue px-2 py-1 rounded-full cursor-pointer"
-      : "hover:bg-text-color-opacity hover:text-main-blue px-1 py-1 rounded-full cursor-pointer"
+      ? "text-acc-blue px-2 py-1 rounded-full cursor-pointer underline"
+      : "hover:underline px-1 py-1 cursor-pointer"
   } text-base font-dm-sans text-sm`;
 
   return (

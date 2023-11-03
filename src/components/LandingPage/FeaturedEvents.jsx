@@ -31,7 +31,7 @@ const FeaturedEvents = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 pl-[30px] pr-[30px]">
+    <div className="container mx-auto py-12 pl-[30px] pr-[30px] z-1">
       <h2 className="font-sans text-head-color font-bold text-4xl pt-[5px] pb-[15px]">
         Featured Events
       </h2>
@@ -56,7 +56,7 @@ const FeaturedEvents = () => {
              </div>
            </div>
            
-           <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105" onClick={() => handleBookTicketClick(event)}>
+           <button className="bk-btn bg-button-color text-white h-[35px] w-[130px] rounded-full mt-0 align-center ml-[80px] mb-[15px] transition-transform transform hover:scale-105 z-1" onClick={() => handleBookTicketClick(event)}>
              Book Ticket
            </button >
           
