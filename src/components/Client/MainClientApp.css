@@ -14,7 +14,7 @@ main{
     background-color: #6176BA;
     color: beige;
     /* height: 100%; */
-    transition: all 0.8s;
+    /* transition: all 0.8s; */
     left: 0; 
     top: 0; 
 }
@@ -42,20 +42,13 @@ main{
     color: white;
     padding: 12px 23px;
     gap: 15px;
-    transition: color 0.8s;
-    background: linear-gradient(to right, #fff 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 100%;
     align-items: center;
 }
 .link:hover {
     color: #6176BA;
-    background-position: 0%;
-    transition: background-position 0.02s, color 0.02s;
-}
-.active{
-    background: #fff;
-    color: #6176BA;
+    background: white;
 }
 .icon{
     font-size: 20px;
@@ -64,3 +57,20 @@ main{
     font-size: 15px;
     padding-left: 0;
 }
+
+.link.active {
+    background: pink;
+    color: #0bbd1d;
+}
+
+
+.main-wrapper {
+    display: flex; /* Use flexbox to align sidebar and content side by side */
+  }
+/*   
+  .content-wrapper {
+    flex: 1; /* Take up remaining available space */
+ 
+  
+  /* Add additional styles as needed */
+  

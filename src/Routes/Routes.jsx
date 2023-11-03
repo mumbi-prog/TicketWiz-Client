@@ -12,7 +12,8 @@ import HomePage from '../Pages./Home';
 // import OrganizerProfile from "../components/Organizer/OrganizerProfile";
 import EventHistory from "../components/Client/EventHistory";
 // import CreateEvent from "../components/Organizer/CreateEvent";
-import Dashboard from "../components/Organizer/Dashboard";
+// import Dashboard from "../components/Organizer/Dashboard";
+import MainOrgAppSec from "../components/Organizer/MainOrgApp2";
 
 const AllRoutes = () => {
   // const [ setUserRole] = useState(""); 
@@ -23,7 +24,7 @@ const AllRoutes = () => {
       <Route path="/customerlogin" element={<CustomerLoginPage/>} />
       <Route path="/organiserlogin" element={<LoginPage />} />
       <Route path="/organisersignup" element={<OrganizerSignupPage />} />
-      <Route path="/orgdashboard" element={<Dashboard/>} />
+      <Route path="/orgdashboard" element={<MainOrgAppSec/>} />
       <Route path="/customerdashboard" element={<EventHistory/>} />
      
     </Routes>
