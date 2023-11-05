@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        '90vh': '90vh',
+      },
       fontFamily: {
         'dm-sans': ['DM Sans', 'sans-serif'],
         'dm-serif-text': ['DM Serif Text', 'serif'],

@@ -16,8 +16,8 @@ function SideBar({children}) {
         {path:'/customerprofile', name:'Profile', icon: <FaUserAlt/>}
     ]
   return (
-    <div className='main-container font-dm-sans h-full'>
-        <div style={{width: isOpen ? "250px" : "50px"}} className="sidebar h-full fixed">
+    <div className='main-container font-dm-sans h-90vh'>
+        <div style={{width: isOpen ? "300px" : "50px"}} className="sidebar h-90vh">
             <div className="logo-container">
                 <img src={logo} alt="" style={{display: isOpen ? "block" : "none"}} className="logo"/>
                 <h3 style={{display: isOpen ? "block" : "none"}}>TicketWiz</h3>
@@ -40,3 +40,4 @@ function SideBar({children}) {
 };
 
 export default SideBar
+

@@ -1,25 +1,22 @@
 
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import LoginPage from "../components/Login/login";
 import CustomerLoginPage from "../components/Login/customerLogin";
 import OrganizerSignupPage from "../components/Login/organiserSignup";
 import CustomerSignupPage from '../components/Login/signup';
-import OrganizerDashboard from "../components/Organizer/OrgDashboard";
-import CustomerDashboard from "../components/Client/Dashboard";
-import EventHistory from "../components/Client/EventHistory";
 import MainClientApp from "../components/Client/MainClientApp";
-import BookTicket from "../components/Client/BookTicket";
-import SideBar from "../components/Client/SideBar";
-import Profile from "../components/Client/Profile";
-import TicketWallet from "../components/Client/TicketWallet";
 import OrganiserSidebar from "../components/Organizer/OrganiserSidebar";
-import TicketSales from "../components/Organizer/Ticketsales";
 import MainOrgApp from "../components/Organizer/MainOrgApp";
-import OrganizerProfile from "../components/Organizer/OrganizerProfile";
-import CreateEvent from "../components/Organizer/CreateEvent";
-
+import { OrganizerDashboard } from "../Pages./OrganizerDashboard";
+import { CustomerDashboard } from "../Pages./customerDashboard";
+import { CreateEvents } from "../Pages./createevents";
+import { TicketSale } from "../Pages./TicketSales";
+import { Profiles } from "../Pages./profile";
+import { CustomerEventHist } from "../Pages./CustomerEventHistory";
+import { TicketWallets } from "../Pages./TicketWallet";
+import { BookTickets } from "../Pages./BookTicket";
+import { OrganizerProfiles } from "../Pages./OrganizerProfile";
 
 
 const AllRoutes = () => {
@@ -33,17 +30,17 @@ const AllRoutes = () => {
       <Route path="/organizerdashboard" element={<OrganizerDashboard />} />
       <Route path="/organizersignup" element={<OrganizerSignupPage />} />
       <Route path="/dashboard" element={<CustomerDashboard />} />
-     <Route path="/sidebar" element={<SideBar />} />
      <Route path="/mainclientapp" element={<MainClientApp />} />
-     <Route path="/bookticket" element={<BookTicket />} />
-     <Route path="/profile" element={<Profile />} />
-     <Route path="/ticketwallet" element={<TicketWallet />} />
-     <Route path="/Eventhistory" element={<EventHistory />} />
-     <Route path="/create-event" element={<CreateEvent />} />
+     <Route path="/booktickets" element={<BookTickets />} />
+     <Route path="/profiles" element={<Profiles />} />
+     <Route path="/ticketwallets" element={<TicketWallets />} />
+     <Route path="/customerEventhist" element={<CustomerEventHist />} />
+     <Route path="/createEvents" element={<CreateEvents />} />
      <Route path="/mainorgapp" element={<MainOrgApp />} />
-     <Route path="/organizerprofile" element={<OrganizerProfile />} />
-     <Route path="/ticketsales" element={<TicketSales />} />
+     <Route path="/organizerprofiles" element={<OrganizerProfiles />} />
+     <Route path="/ticketsale" element={<TicketSale />} />
      <Route path="/organisersidebar" element={<OrganiserSidebar />} />
+     
       
      
     </Routes>

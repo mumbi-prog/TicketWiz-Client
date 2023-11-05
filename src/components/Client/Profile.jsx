@@ -28,7 +28,7 @@ function Profile() {
   }
 
   return (
-    <div className='profile-container pl-[30%] mt-[80px]'>
+    <div className='profile-container pl-[30%]'>
      <h1 className='profile-head mt-[50px] uppercase px-[50px] py-[7px] font-bold bg-acc-blue text-text-color text-lg w-[400px] text-center'>Contact information</h1>
       <form className='profile-form flex flex-col items-left mt-[20px]'>
         <div className="form-group align-left">
