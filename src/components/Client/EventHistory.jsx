@@ -53,6 +53,10 @@ function formatDate(dateString) {
           View Past and Upcoming Events You've Booked
         </h2>
 
+
+        {eventHistory.length === 0 ? (
+          <p className="font-bold">No events yet. Start booking today!!</p>
+        ) : (
         <div className={`event-history grid ${gridColumns} sm:grid-cols-2 md:grid-cols-3 gap-8 my-[10px]`}>
           {eventHistory.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md hover:shadow-blue w-[280px]">
@@ -80,6 +84,7 @@ function formatDate(dateString) {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
