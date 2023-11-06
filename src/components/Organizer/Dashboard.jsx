@@ -112,6 +112,7 @@ function Dashboard() {
       </section>
     );
   }
+  
 
   return (
     <div className="organizer-dashboard mx-[20px] font-sans my-[30px]">
