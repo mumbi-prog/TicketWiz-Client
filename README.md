@@ -8,8 +8,8 @@ TicketWiz is an event management system that simplifies event creation, manageme
 
 Our project is brought to you by a dedicated team 
 
-- **Sylvia Mumbi** - *Project Manager and Backend Developer*
-- **Kenneth Wachira** - *Frontend Developer*
+- **Sylvia Mumbi** - *Project Manager and Frontend Developer*
+- **Kenneth Wachira** - *Backend Developer*
 - **Alex Kimanthi** - *Backend Developer*
 - **Gregg Ochieng** - *Backend Developer*
 - **Damaris Njeri** - *UI/UX Designer*
