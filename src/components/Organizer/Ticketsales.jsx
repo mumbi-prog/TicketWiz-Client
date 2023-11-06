@@ -18,10 +18,20 @@ function TicketSales() {
       });
   }, []);
 
-
+  if (loading) {
+    return (
+      <section className="dots-container mt-[15%]">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </section>
+    );
+  }
 
   return (
-      <div>TicketSales</div>
+   
   );
 }
 
