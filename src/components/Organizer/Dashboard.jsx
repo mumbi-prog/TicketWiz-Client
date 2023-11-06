@@ -126,6 +126,9 @@ function Dashboard() {
          
 
           <h2 className='text-2xl font-medium my-[15px]'>My Events</h2>
+          {organizerData.length === 0 ? (
+          <p className='font-medium'>No events. Get to creating some.</p>
+        ) : (
         <div className="event-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-[10px]">
           {organizerData.map((event) => (
             <div key={event.id} className="event-card border border-gray-300 rounded-lg shadow-md">
@@ -157,6 +160,7 @@ function Dashboard() {
             </div>
           ))}
         </div>
+        )}
       </div>
       {isUpdateModalOpen && (
         <UpdateModal onClose={closeUpdateModal} onUpdate={handleUpdateEvent} eventData={eventToUpdate} />
